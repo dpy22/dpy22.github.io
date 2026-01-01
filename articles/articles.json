@@ -1,0 +1,34 @@
+[
+    {
+        "id": "minimalist-design",
+        "title": "The Art of Minimalist Design",
+        "date": "March 15, 2024",
+        "excerpt": "Exploring the principles of minimalist design and how less can truly be more in digital interfaces.",
+        "type": "markdown",
+        "folder": "minimalist-design"
+    },
+    {
+        "id": "web-architecture",
+        "title": "Understanding Modern Web Architecture",
+        "date": "February 28, 2024",
+        "excerpt": "A deep dive into the architecture patterns that power today's web applications.",
+        "type": "html",
+        "folder": "web-architecture"
+    },
+    {
+        "id": "philosophy-of-code",
+        "title": "The Philosophy of Code",
+        "date": "January 20, 2024",
+        "excerpt": "Reflecting on what it means to write good code. Beyond syntax and algorithms.",
+        "type": "markdown",
+        "folder": "philosophy-of-code"
+    },
+    {
+        "id": "math-and-images",
+        "title": "Math Formulas and Images in Markdown",
+        "date": "March 20, 2024",
+        "excerpt": "A demonstration of mathematical formulas and image support in Markdown articles.",
+        "type": "markdown",
+        "folder": "math-and-images"
+    }
+]

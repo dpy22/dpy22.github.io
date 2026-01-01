@@ -1,40 +1,1437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>主页</title>
-      <style>
-            body {
-                  font-family: Arial, sans-serif;
-                  margin: 0;
-                  padding: 0;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  height: 100vh;
-                  background-color: #f0f0f0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio</title>
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', 'Songti SC', 'SimSun', serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 80px;
+            border-bottom: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 16px 32px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #666;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            bottom: -1px;
+        }
+
+        .tab-btn:hover {
+            color: #1a1a1a;
+        }
+
+        .tab-btn.active {
+            color: #1a1a1a;
+            border-bottom-color: #1a1a1a;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content-card {
+            background: transparent;
+            padding: 0;
+        }
+
+        /* Home Tab */
+        #home {
+            text-align: left;
+        }
+
+        #home h1 {
+            font-size: 4.5em;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        #home p {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        #home .subtitle {
+            font-size: 1em;
+            color: #999;
+            margin-top: 60px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Portfolio Tab */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            opacity: 0.7;
+        }
+
+        .portfolio-item h3 {
+            font-size: 2em;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .portfolio-item p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Games Tab */
+        .game-container {
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 400;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        #snake-canvas {
+            border: 1px solid #e0e0e0;
+            background: #fff;
+            margin: 30px 0;
+            display: block;
+        }
+
+        .game-controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background: #1a1a1a;
+            color: #fafafa;
+            border: 1px solid #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #fafafa;
+            color: #1a1a1a;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1a1a1a;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            color: #fafafa;
+        }
+
+        .score {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin: 20px 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        .game-instructions {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.95em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        /* Tools Tab */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .tool-card {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+        }
+
+        .tool-card h3 {
+            font-size: 2em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        .color-picker-container {
+            margin-top: 20px;
+        }
+
+        .color-display {
+            width: 100%;
+            height: 120px;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+        }
+
+        input[type="color"] {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .color-code {
+            margin-top: 15px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        #quote {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #666;
+            font-style: italic;
+            margin: 20px 0 30px 0;
+            min-height: 80px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            background: #fff;
+            color: #1a1a1a;
+            resize: vertical;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+
+        .counter-info {
+            margin-top: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Art Tab */
+        .art-canvas-container {
+            text-align: left;
+        }
+
+        #art-canvas {
+            border: 1px solid #e0e0e0;
+            background: #fff;
+            cursor: crosshair;
+            display: block;
+            margin: 30px 0;
+        }
+
+        .art-controls {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .art-controls input[type="color"] {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .art-controls input[type="range"] {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .brush-size-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.9em;
+            color: #666;
+            min-width: 50px;
+        }
+
+        /* Clock Tab */
+        .clock-container {
+            text-align: left;
+        }
+
+        .clock-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .clock {
+            width: 280px;
+            height: 280px;
+            border: 1px solid #1a1a1a;
+            margin: 0;
+            position: relative;
+            background: #fff;
+        }
+
+        .clock-hand {
+            position: absolute;
+            background: #1a1a1a;
+            transform-origin: bottom center;
+        }
+
+        .hour-hand {
+            width: 4px;
+            height: 70px;
+            top: 70px;
+            left: 138px;
+        }
+
+        .minute-hand {
+            width: 3px;
+            height: 100px;
+            top: 40px;
+            left: 138.5px;
+        }
+
+        .second-hand {
+            width: 1px;
+            height: 110px;
+            top: 30px;
+            left: 139.5px;
+            background: #999;
+        }
+
+        .clock-center {
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            position: absolute;
+            top: 134px;
+            left: 134px;
+            z-index: 10;
+        }
+
+        .digital-clock {
+            font-size: 4em;
+            font-weight: 400;
+            color: #1a1a1a;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        /* Articles Tab */
+        .articles-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .article-item {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-item:hover {
+            opacity: 0.7;
+        }
+
+        .article-item h3 {
+            font-size: 2em;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .article-meta {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.85em;
+            color: #999;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-excerpt {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .article-read-more {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.9em;
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Article Detail */
+        .article-detail {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .article-back {
+            margin-bottom: 40px;
+        }
+
+        .article-back-btn {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.9em;
+            color: #666;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            padding: 0;
+            transition: color 0.3s ease;
+        }
+
+        .article-back-btn:hover {
+            color: #1a1a1a;
+        }
+
+        .article-detail-header {
+            margin-bottom: 50px;
+        }
+
+        .article-detail-title {
+            font-size: 3.5em;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .article-detail-meta {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 0.9em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-detail-content {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        .article-detail-content p {
+            margin-bottom: 25px;
+        }
+
+        .article-detail-content h2 {
+            font-size: 2em;
+            font-weight: 400;
+            margin: 50px 0 25px 0;
+            color: #1a1a1a;
+        }
+
+        .article-detail-content h3 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin: 40px 0 20px 0;
+            color: #1a1a1a;
+        }
+
+        .article-detail-content ul,
+        .article-detail-content ol {
+            margin: 25px 0;
+            padding-left: 30px;
+        }
+
+        .article-detail-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-detail-content blockquote {
+            border-left: 2px solid #e0e0e0;
+            padding-left: 25px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .article-detail-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            display: block;
+        }
+
+        .article-detail-content pre {
+            background: #f5f5f5;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        .article-detail-content code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-detail-content pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        .math-block {
+            margin: 30px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .math-inline {
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
             .container {
-                  text-align: center;
-                  background: white;
-                  padding: 20px;
-                  border-radius: 8px;
-                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 40px 20px;
             }
-            h1 {
-                  margin: 0;
-                  font-size: 2em;
-                  color: #333;
+
+            .tabs {
+                margin-bottom: 40px;
             }
-            p {
-                  color: #666;
+
+            .tab-btn {
+                padding: 12px 20px;
+                font-size: 12px;
             }
-      </style>
+
+            #home h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .clock-wrapper {
+                gap: 40px;
+            }
+
+            .digital-clock {
+                font-size: 2.5em;
+            }
+
+            #snake-canvas {
+                width: 100%;
+                height: auto;
+            }
+
+            #art-canvas {
+                width: 100%;
+                height: auto;
+            }
+
+            .article-detail-title {
+                font-size: 2.5em;
+            }
+
+            .article-detail-content {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
-      <div class="container">
-            <h1>欢迎来到我的主页</h1>
-      </div>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('home', this)">Home</button>
+            <button class="tab-btn" onclick="switchTab('portfolio', this)">Portfolio</button>
+            <button class="tab-btn" onclick="switchTab('games', this)">Games</button>
+            <button class="tab-btn" onclick="switchTab('tools', this)">Tools</button>
+            <button class="tab-btn" onclick="switchTab('art', this)">Art</button>
+            <button class="tab-btn" onclick="switchTab('clock', this)">Clock</button>
+            <button class="tab-btn" onclick="switchTab('articles', this)">Articles</button>
+        </div>
+
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="content-card">
+                <h1>Welcome to My Creative Space</h1>
+                <p>Explore different sections to discover various interactive experiences and tools.</p>
+                <p>Each section offers a unique perspective on digital creativity and functionality.</p>
+                <p class="subtitle">Built with modern web technologies</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Tab -->
+        <div id="portfolio" class="tab-content">
+            <div class="content-card">
+                <h2 class="section-title">Projects</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <h3>Web Development</h3>
+                        <p>Modern, responsive web applications built with cutting-edge technologies. Focus on performance, accessibility, and user experience.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Creative Design</h3>
+                        <p>Thoughtful UI/UX designs that combine aesthetics with functionality. Every detail is considered to create meaningful interactions.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Interactive Experiences</h3>
+                        <p>Engaging user experiences that bring ideas to life. From simple interactions to complex digital narratives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content">
+            <div class="content-card">
+                <h2 class="section-title">Snake Game</h2>
+                <div class="game-container">
+                    <canvas id="snake-canvas" width="400" height="400"></canvas>
+                    <div class="score">Score: <span id="score">0</span></div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="startGame()">Start</button>
+                        <button class="btn btn-secondary" onclick="pauseGame()">Pause</button>
+                        <button class="btn btn-secondary" onclick="resetGame()">Reset</button>
+                    </div>
+                    <p class="game-instructions">Use arrow keys to control the snake</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Tab -->
+        <div id="tools" class="tab-content">
+            <div class="content-card">
+                <h2 class="section-title">Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3>Color Picker</h3>
+                        <div class="color-picker-container">
+                            <input type="color" id="colorPicker" value="#1a1a1a" onchange="updateColor()">
+                            <div class="color-display" id="colorDisplay"></div>
+                            <p class="color-code" id="colorCode">#1a1a1a</p>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Random Quote</h3>
+                        <p id="quote">Click the button below to get inspired.</p>
+                        <button class="btn" onclick="getRandomQuote()">New Quote</button>
+                    </div>
+                    <div class="tool-card">
+                        <h3>Text Counter</h3>
+                        <textarea id="textInput" placeholder="Type something here..." oninput="updateCounter()"></textarea>
+                        <p class="counter-info">Characters: <span id="charCount">0</span> | Words: <span id="wordCount">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Art Tab -->
+        <div id="art" class="tab-content">
+            <div class="content-card">
+                <h2 class="section-title">Interactive Canvas</h2>
+                <div class="art-canvas-container">
+                    <canvas id="art-canvas" width="600" height="400"></canvas>
+                    <div class="art-controls">
+                        <input type="color" id="brushColor" value="#1a1a1a">
+                        <input type="range" id="brushSize" min="1" max="50" value="5">
+                        <span class="brush-size-label" id="brushSizeValue">5px</span>
+                        <button class="btn btn-secondary" onclick="clearCanvas()">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clock Tab -->
+        <div id="clock" class="tab-content">
+            <div class="content-card">
+                <h2 class="section-title">Clock</h2>
+                <div class="clock-container">
+                    <div class="clock-wrapper">
+                        <div class="clock" id="analogClock">
+                            <div class="clock-hand hour-hand" id="hourHand"></div>
+                            <div class="clock-hand minute-hand" id="minuteHand"></div>
+                            <div class="clock-hand second-hand" id="secondHand"></div>
+                            <div class="clock-center"></div>
+                        </div>
+                        <div class="digital-clock" id="digitalClock"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <div class="content-card">
+                <!-- Articles List View -->
+                <div id="articles-list-view">
+                    <h2 class="section-title">Articles</h2>
+                    <div class="articles-list" id="articlesList">
+                        <!-- Articles will be loaded here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Article Detail View -->
+                <div id="article-detail-view" style="display: none;">
+                    <div class="article-detail">
+                        <div class="article-back">
+                            <button class="article-back-btn" onclick="showArticlesList()">← Back to Articles</button>
+                        </div>
+                        <div class="article-detail-header">
+                            <h1 class="article-detail-title" id="articleDetailTitle"></h1>
+                            <div class="article-detail-meta" id="articleDetailMeta"></div>
+                        </div>
+                        <div class="article-detail-content" id="articleDetailContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switching
+        function switchTab(tabName, clickedElement) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button (if provided)
+            if (clickedElement) {
+                clickedElement.classList.add('active');
+            } else {
+                // Find the button by onclick attribute
+                const button = document.querySelector(`.tab-btn[onclick*="${tabName}"]`);
+                if (button) {
+                    button.classList.add('active');
+                }
+            }
+            
+            // Initialize tab-specific features
+            if (tabName === 'games') {
+                initSnakeGame();
+            } else if (tabName === 'art') {
+                initArtCanvas();
+            } else if (tabName === 'clock') {
+                initClock();
+            } else if (tabName === 'articles') {
+                initArticles();
+            }
+        }
+
+        // Articles Data - loaded from articles.json
+        let articles = [];
+        let articlesLoaded = false;
+
+        // Simple Markdown Parser with image and math support
+        function parseMarkdown(markdown) {
+            let html = markdown;
+            
+            // Math blocks (preserve them) - both inline and block
+            const mathBlocks = [];
+            // Block math: $$...$$
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match, content) => {
+                const id = `MATH_BLOCK_${mathBlocks.length}`;
+                mathBlocks.push({ type: 'block', content: content.trim() });
+                return id;
+            });
+            // Inline math: $...$
+            html = html.replace(/\$([^\$\n]+?)\$/g, (match, content) => {
+                const id = `MATH_INLINE_${mathBlocks.length}`;
+                mathBlocks.push({ type: 'inline', content: content.trim() });
+                return id;
+            });
+            
+            // Code blocks (preserve them)
+            const codeBlocks = [];
+            html = html.replace(/```[\s\S]*?```/g, (match) => {
+                const id = `CODE_BLOCK_${codeBlocks.length}`;
+                codeBlocks.push(match);
+                return id;
+            });
+            
+            // Images: ![alt](url "title")
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)(?:\s+"([^"]*)")?\)/g, (match, alt, url, title) => {
+                const titleAttr = title ? ` title="${title}"` : '';
+                return `<img src="${url}" alt="${alt || ''}"${titleAttr} style="max-width: 100%; height: auto; margin: 20px 0;" />`;
+            });
+            
+            // Inline code
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            
+            // Headers (process in reverse order to avoid conflicts)
+            html = html.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+            
+            // Bold
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Italic
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            // Links
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+            
+            // Blockquotes
+            const blockquoteLines = [];
+            html = html.split('\n').map((line, index, arr) => {
+                if (line.trim().startsWith('> ')) {
+                    blockquoteLines.push(line.trim().substring(2));
+                    return null;
+                } else if (blockquoteLines.length > 0) {
+                    const quote = '<blockquote>' + blockquoteLines.join(' ') + '</blockquote>';
+                    blockquoteLines.length = 0;
+                    return quote + '\n' + line;
+                }
+                return line;
+            }).filter(line => line !== null).join('\n');
+            
+            // Lists (unordered and ordered) - process line by line
+            const lines = html.split('\n');
+            let inUl = false;
+            let inOl = false;
+            html = lines.map((line, index) => {
+                const ulMatch = line.match(/^[\-\*] (.*)$/);
+                const olMatch = line.match(/^\d+\. (.*)$/);
+                const prevLine = index > 0 ? lines[index - 1] : '';
+                const nextLine = index < lines.length - 1 ? lines[index + 1] : '';
+                const prevIsUl = prevLine.match(/^[\-\*] /);
+                const nextIsUl = nextLine.match(/^[\-\*] /);
+                const prevIsOl = prevLine.match(/^\d+\. /);
+                const nextIsOl = nextLine.match(/^\d+\. /);
+                
+                let result = '';
+                
+                if (ulMatch) {
+                    if (!inUl) {
+                        result += '<ul>';
+                        inUl = true;
+                    }
+                    result += '<li>' + ulMatch[1] + '</li>';
+                    if (!nextIsUl) {
+                        result += '</ul>';
+                        inUl = false;
+                    }
+                } else if (olMatch) {
+                    if (!inOl) {
+                        result += '<ol>';
+                        inOl = true;
+                    }
+                    result += '<li>' + olMatch[1] + '</li>';
+                    if (!nextIsOl) {
+                        result += '</ol>';
+                        inOl = false;
+                    }
+                } else {
+                    if (inUl) {
+                        result += '</ul>';
+                        inUl = false;
+                    }
+                    if (inOl) {
+                        result += '</ol>';
+                        inOl = false;
+                    }
+                    result += line;
+                }
+                
+                return result;
+            }).join('\n');
+            
+            // Close any open lists
+            if (inUl) html += '</ul>';
+            if (inOl) html += '</ol>';
+            
+            // Restore math blocks
+            mathBlocks.forEach((math, index) => {
+                if (math.type === 'block') {
+                    html = html.replace(`MATH_BLOCK_${index}`, `<div class="math-block">$$${math.content}$$</div>`);
+                } else {
+                    html = html.replace(`MATH_INLINE_${index}`, `<span class="math-inline">$${math.content}$</span>`);
+                }
+            });
+            
+            // Restore code blocks
+            codeBlocks.forEach((code, index) => {
+                const codeContent = code.replace(/```[\w]*\n?/g, '').trim();
+                html = html.replace(`CODE_BLOCK_${index}`, '<pre><code>' + codeContent + '</code></pre>');
+            });
+            
+            // Paragraphs (lines that don't start with HTML tags and aren't empty)
+            html = html.split('\n').map(line => {
+                const trimmed = line.trim();
+                if (!trimmed) return '';
+                if (trimmed.match(/^<[h|u|o|b|l|d|p|a|s|e|i]/) || 
+                    trimmed.match(/^<\/[h|u|o|b|l|d|p|a|s|e|i]/) ||
+                    trimmed.match(/^<code/) ||
+                    trimmed.match(/^<\/code/) ||
+                    trimmed.match(/^<pre/) ||
+                    trimmed.match(/^<\/pre/)) {
+                    return trimmed;
+                }
+                return '<p>' + trimmed + '</p>';
+            }).filter(line => line).join('\n');
+            
+            // Clean up empty paragraphs and extra newlines
+            html = html.replace(/<p><\/p>/g, '');
+            html = html.replace(/\n{3,}/g, '\n\n');
+            
+            return html;
+        }
+
+        // Load articles list from JSON
+        async function loadArticlesList() {
+            try {
+                // Try different possible paths
+                let response = await fetch('articles/articles.json');
+                if (!response.ok) {
+                    response = await fetch('./articles/articles.json');
+                }
+                if (!response.ok) {
+                    throw new Error('Failed to load articles');
+                }
+                articles = await response.json();
+                articlesLoaded = true;
+                return articles;
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                // Show error message to user
+                const articlesList = document.getElementById('articlesList');
+                if (articlesList) {
+                    articlesList.innerHTML = '<p style="color: #999;">Error loading articles. Please check the console for details.</p>';
+                }
+                articles = [];
+                articlesLoaded = true;
+                return [];
+            }
+        }
+
+        // Load article content
+        async function loadArticleContent(article) {
+            try {
+                const folder = article.folder;
+                let content = '';
+                
+                if (article.type === 'markdown') {
+                    // Try different possible paths
+                    let response = await fetch(`articles/${folder}/content.md`);
+                    if (!response.ok) {
+                        response = await fetch(`./articles/${folder}/content.md`);
+                    }
+                    if (!response.ok) throw new Error('Failed to load article');
+                    const markdown = await response.text();
+                    content = parseMarkdown(markdown);
+                } else if (article.type === 'html') {
+                    // Try different possible paths
+                    let response = await fetch(`articles/${folder}/index.html`);
+                    if (!response.ok) {
+                        response = await fetch(`./articles/${folder}/index.html`);
+                    }
+                    if (!response.ok) throw new Error('Failed to load article');
+                    const html = await response.text();
+                    // Extract content from <article> tag or <body>
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const articleTag = doc.querySelector('article');
+                    if (articleTag) {
+                        content = articleTag.innerHTML;
+                    } else {
+                        const body = doc.querySelector('body');
+                        content = body ? body.innerHTML : html;
+                    }
+                }
+                
+                return content;
+            } catch (error) {
+                console.error('Error loading article content:', error);
+                return '<p>Error loading article content. Please check the console for details.</p>';
+            }
+        }
+
+        // Articles Functions
+        async function initArticles() {
+            // Load articles list if not loaded
+            if (!articlesLoaded) {
+                await loadArticlesList();
+            }
+            
+            // Check URL for article ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            
+            if (articleId) {
+                await showArticleDetail(articleId);
+            } else {
+                // Ensure articles are loaded before rendering
+                if (articlesLoaded && articles.length > 0) {
+                    renderArticlesList();
+                } else if (!articlesLoaded) {
+                    // If still loading, wait a bit and try again
+                    setTimeout(() => {
+                        if (articlesLoaded) {
+                            renderArticlesList();
+                        }
+                    }, 100);
+                } else {
+                    renderArticlesList(); // Will show "No articles found"
+                }
+            }
+        }
+
+        function renderArticlesList() {
+            const articlesList = document.getElementById('articlesList');
+            if (!articlesList) {
+                console.error('Articles list element not found');
+                return;
+            }
+            articlesList.innerHTML = '';
+            
+            if (articles.length === 0) {
+                articlesList.innerHTML = '<p style="color: #999;">No articles found. Make sure articles/articles.json exists and is accessible.</p>';
+                return;
+            }
+            
+            articles.forEach(article => {
+                const articleItem = document.createElement('div');
+                articleItem.className = 'article-item';
+                articleItem.onclick = () => showArticleDetail(article.id);
+                
+                articleItem.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <div class="article-meta">${article.date}</div>
+                    <div class="article-excerpt">${article.excerpt}</div>
+                    <div class="article-read-more">Read more →</div>
+                `;
+                
+                articlesList.appendChild(articleItem);
+            });
+            
+            // Show list view, hide detail view
+            document.getElementById('articles-list-view').style.display = 'block';
+            document.getElementById('article-detail-view').style.display = 'none';
+        }
+
+        async function showArticleDetail(articleId) {
+            const article = articles.find(a => a.id === articleId);
+            if (!article) {
+                renderArticlesList();
+                return;
+            }
+            
+            // Show loading state
+            document.getElementById('articleDetailTitle').textContent = 'Loading...';
+            document.getElementById('articleDetailMeta').textContent = '';
+            document.getElementById('articleDetailContent').innerHTML = '<p>Loading article content...</p>';
+            
+            // Show detail view, hide list view
+            document.getElementById('articles-list-view').style.display = 'none';
+            document.getElementById('article-detail-view').style.display = 'block';
+            
+            // Update URL without reloading
+            const newUrl = window.location.pathname + '?article=' + articleId;
+            window.history.pushState({articleId: articleId}, '', newUrl);
+            
+            // Load article content
+            const content = await loadArticleContent(article);
+            
+            // Update detail view
+            document.getElementById('articleDetailTitle').textContent = article.title;
+            document.getElementById('articleDetailMeta').textContent = article.date;
+            document.getElementById('articleDetailContent').innerHTML = content;
+            
+            // Render math with KaTeX if available
+            if (typeof renderMathInElement !== 'undefined') {
+                const contentElement = document.getElementById('articleDetailContent');
+                renderMathInElement(contentElement, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function showArticlesList() {
+            // Update URL
+            window.history.pushState({}, '', window.location.pathname);
+            renderArticlesList();
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', async (e) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            
+            if (articleId) {
+                // Make sure we're on the articles tab
+                if (document.getElementById('articles').classList.contains('active')) {
+                    await showArticleDetail(articleId);
+                }
+            } else {
+                if (document.getElementById('articles').classList.contains('active')) {
+                    renderArticlesList();
+                }
+            }
+        });
+
+        // Snake Game
+        let snakeGame, gameContext, gameRunning = false, gamePaused = false;
+        let snake = [{x: 200, y: 200}];
+        let direction = {x: 0, y: 0};
+        let food = {x: 0, y: 0};
+        let score = 0;
+
+        function initSnakeGame() {
+            snakeGame = document.getElementById('snake-canvas');
+            gameContext = snakeGame.getContext('2d');
+            generateFood();
+            drawGame();
+        }
+
+        function generateFood() {
+            food.x = Math.floor(Math.random() * 20) * 20;
+            food.y = Math.floor(Math.random() * 20) * 20;
+        }
+
+        function drawGame() {
+            gameContext.fillStyle = '#fff';
+            gameContext.fillRect(0, 0, 400, 400);
+
+            // Draw grid
+            gameContext.strokeStyle = '#f5f5f5';
+            gameContext.lineWidth = 1;
+            for (let i = 0; i <= 400; i += 20) {
+                gameContext.beginPath();
+                gameContext.moveTo(i, 0);
+                gameContext.lineTo(i, 400);
+                gameContext.stroke();
+                gameContext.beginPath();
+                gameContext.moveTo(0, i);
+                gameContext.lineTo(400, i);
+                gameContext.stroke();
+            }
+
+            // Draw food
+            gameContext.fillStyle = '#1a1a1a';
+            gameContext.fillRect(food.x, food.y, 20, 20);
+
+            // Draw snake
+            gameContext.fillStyle = '#1a1a1a';
+            snake.forEach(segment => {
+                gameContext.fillRect(segment.x, segment.y, 20, 20);
+            });
+        }
+
+        function gameLoop() {
+            if (!gameRunning || gamePaused) return;
+
+            const head = {x: snake[0].x + direction.x, y: snake[0].y + direction.y};
+
+            // Check wall collision
+            if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
+                resetGame();
+                return;
+            }
+
+            // Check self collision
+            if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                resetGame();
+                return;
+            }
+
+            snake.unshift(head);
+
+            // Check food collision
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                document.getElementById('score').textContent = score;
+                generateFood();
+            } else {
+                snake.pop();
+            }
+
+            drawGame();
+            setTimeout(gameLoop, 150);
+        }
+
+        function startGame() {
+            if (!gameRunning) {
+                gameRunning = true;
+                gamePaused = false;
+                if (direction.x === 0 && direction.y === 0) {
+                    direction = {x: 20, y: 0};
+                }
+                gameLoop();
+            } else {
+                gamePaused = false;
+                gameLoop();
+            }
+        }
+
+        function pauseGame() {
+            gamePaused = true;
+        }
+
+        function resetGame() {
+            snake = [{x: 200, y: 200}];
+            direction = {x: 0, y: 0};
+            score = 0;
+            gameRunning = false;
+            gamePaused = false;
+            document.getElementById('score').textContent = score;
+            generateFood();
+            drawGame();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning) return;
+            switch(e.key) {
+                case 'ArrowUp':
+                    if (direction.y === 0) direction = {x: 0, y: -20};
+                    break;
+                case 'ArrowDown':
+                    if (direction.y === 0) direction = {x: 0, y: 20};
+                    break;
+                case 'ArrowLeft':
+                    if (direction.x === 0) direction = {x: -20, y: 0};
+                    break;
+                case 'ArrowRight':
+                    if (direction.x === 0) direction = {x: 20, y: 0};
+                    break;
+            }
+        });
+
+        // Tools
+        function updateColor() {
+            const color = document.getElementById('colorPicker').value;
+            document.getElementById('colorDisplay').style.backgroundColor = color;
+            document.getElementById('colorCode').textContent = color;
+        }
+
+        const quotes = [
+            "The only way to do great work is to love what you do. — Steve Jobs",
+            "Innovation distinguishes between a leader and a follower. — Steve Jobs",
+            "Life is what happens to you while you're busy making other plans. — John Lennon",
+            "The future belongs to those who believe in the beauty of their dreams. — Eleanor Roosevelt",
+            "It is during our darkest moments that we must focus to see the light. — Aristotle",
+            "The only impossible journey is the one you never begin. — Tony Robbins"
+        ];
+
+        function getRandomQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote').textContent = randomQuote;
+        }
+
+        function updateCounter() {
+            const text = document.getElementById('textInput').value;
+            document.getElementById('charCount').textContent = text.length;
+            document.getElementById('wordCount').textContent = text.trim() ? text.trim().split(/\s+/).length : 0;
+        }
+
+        // Art Canvas
+        let artCanvas, artContext, isDrawing = false;
+
+        function initArtCanvas() {
+            artCanvas = document.getElementById('art-canvas');
+            artContext = artCanvas.getContext('2d');
+            artContext.fillStyle = '#fff';
+            artContext.fillRect(0, 0, 600, 400);
+
+            artCanvas.addEventListener('mousedown', startDrawing);
+            artCanvas.addEventListener('mousemove', draw);
+            artCanvas.addEventListener('mouseup', stopDrawing);
+            artCanvas.addEventListener('mouseout', stopDrawing);
+
+            document.getElementById('brushSize').addEventListener('input', (e) => {
+                document.getElementById('brushSizeValue').textContent = e.target.value + 'px';
+            });
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            const rect = artCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            artContext.fillStyle = document.getElementById('brushColor').value;
+            const size = document.getElementById('brushSize').value;
+            artContext.beginPath();
+            artContext.arc(x, y, size / 2, 0, Math.PI * 2);
+            artContext.fill();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function clearCanvas() {
+            artContext.fillStyle = '#fff';
+            artContext.fillRect(0, 0, 600, 400);
+        }
+
+        // Clock
+        function initClock() {
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            // Analog clock
+            const hourAngle = (hours * 30) + (minutes * 0.5) - 90;
+            const minuteAngle = (minutes * 6) + (seconds * 0.1) - 90;
+            const secondAngle = (seconds * 6) - 90;
+
+            document.getElementById('hourHand').style.transform = `rotate(${hourAngle}deg)`;
+            document.getElementById('minuteHand').style.transform = `rotate(${minuteAngle}deg)`;
+            document.getElementById('secondHand').style.transform = `rotate(${secondAngle}deg)`;
+
+            // Digital clock
+            const timeString = now.toLocaleTimeString('en-US', {hour12: false});
+            document.getElementById('digitalClock').textContent = timeString;
+        }
+
+        // Initialize tools on load
+        updateColor();
+
+        // Check URL on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            
+            if (articleId) {
+                // Load articles first
+                await loadArticlesList();
+                // Switch to articles tab
+                switchTab('articles');
+                // Wait a bit for tab to switch, then show article
+                setTimeout(async () => {
+                    await showArticleDetail(articleId);
+                }, 100);
+            }
+        });
+    </script>
 </body>
 </html>
