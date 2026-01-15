@@ -30,5 +30,13 @@
         "excerpt": "A demonstration of mathematical formulas and image support in Markdown articles.",
         "type": "markdown",
         "folder": "math-and-images"
-    }
+    },
+    {
+    "id": "manifoldrack-v1",
+    "title": "ManifoldRack_v1 机柜冷却歧管系统详解",
+    "date": "January 15, 2026",
+    "excerpt": "A detailed explanation of the ManifoldRack_v1 cabinet cooling manifold system.",
+    "type": "markdown",
+    "folder": "manifoldrack-v1"
+}
 ]
