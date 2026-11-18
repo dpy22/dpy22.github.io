@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Home from '../components/Home.astro';
+import ProjectIndex from '../components/ProjectIndex.astro';
+import ProjectDetail from '../components/ProjectDetail.astro';
+import Resume from '../components/Resume.astro';
+import { projects, text, type Locale } from '../lib/site';
+
+export function getStaticPaths() {
+  return (['zh', 'en'] as const).flatMap(locale => [
+    { params: { path: locale === 'en' ? 'en' : undefined }, props: { locale, kind: 'home', slug: '' } },
+    { params: { path: `${locale === 'en' ? 'en/' : ''}projects` }, props: { locale, kind: 'projects', slug: '' } },
+    { params: { path: `${locale === 'en' ? 'en/' : ''}resume` }, props: { locale, kind: 'resume', slug: '' } },
+    ...projects.map(project => ({ params: { path: `${locale === 'en' ? 'en/' : ''}projects/${project.slug}` }, props: { locale, kind: 'project', slug: project.slug } })),
+  ]);
+}
+interface Props { locale: Locale; kind: string; slug: string }
+const { locale, kind, slug } = Astro.props;
+const project = projects.find(item => item.slug === slug);
+const title = kind === 'projects' ? text(locale, '作品与探索', 'Work & explorations') : kind === 'resume' ? text(locale, '简历', 'Résumé') : project?.[locale].title;
+---
+<Base locale={locale} title={title} kind={kind} description={project?.[locale].summary}>
+  {kind === 'home' && <Home locale={locale}/>}
+  {kind === 'projects' && <ProjectIndex locale={locale}/>}
+  {kind === 'resume' && <Resume locale={locale}/>}
+  {kind === 'project' && project && <ProjectDetail locale={locale} project={project}/>}
+</Base>

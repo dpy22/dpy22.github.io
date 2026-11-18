@@ -1,0 +1,14 @@
+---
+interface Props { name?: 'arrow' | 'up-right' | 'download' | 'mail' | 'github' | 'plus' | 'menu'; size?: number }
+const { name = 'arrow', size = 20 } = Astro.props;
+const paths = {
+  arrow: 'M4 12h15m-6-6 6 6-6 6',
+  'up-right': 'M6 18 18 6M6 6h12v12',
+  download: 'M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5',
+  mail: 'M3 5h18v14H3zM3 6l9 7 9-7',
+  github: 'M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3A5.7 5.7 0 0 0 19.3 4a5.3 5.3 0 0 0-.1-4s-1.2-.4-4 1.5a13.7 13.7 0 0 0-7 0C5.4-.4 4.2 0 4.2 0a5.3 5.3 0 0 0-.1 4A5.7 5.7 0 0 0 2.6 8c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 8.5 18v4',
+  plus: 'M12 5v14M5 12h14',
+  menu: 'M4 8h16M4 16h16',
+};
+---
+<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d={paths[name]} /></svg>

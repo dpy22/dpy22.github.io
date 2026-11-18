@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import ProjectCard from './ProjectCard.astro';
+import { profile, projects, pdfPath, route, text, type Locale } from '../lib/site';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const selected = projects.filter(project => project.featured);
+---
+<section class="hero shell" aria-labelledby="hero-title">
+  <div class="hero-topline"><span class="eyebrow">{text(locale, '个人简历与作品集', 'PERSONAL PORTFOLIO')}</span><span class="eyebrow">ENERGY / COMPUTING / SOFTWARE</span></div>
+  <div class="hero-copy">
+    <h1 id="hero-title" class:list={{ 'name-en': locale === 'en' }}>{locale === 'zh' ? <>段培耀<span class="hero-other-name" lang="en">Peiyao Duan</span></> : <>Peiyao<br/>{' '}Duan<span class="hero-other-name" lang="zh-CN">段培耀</span></>}</h1>
+    <div class="hero-profile"><p class="hero-discipline"><span>{profile.headline[locale][0]}</span><span>{profile.headline[locale][1]}</span></p><p class="hero-description">{profile.intro[locale]}</p><a class="text-link" href={route(locale, 'resume')}>{text(locale, '查看完整简历', 'View résumé')}<Icon name="up-right" size={18}/></a></div>
+  </div>
+  <div class="hero-bottom"><a class="hero-work-link" href="#work">{text(locale, '精选项目', 'Selected projects')}<span aria-hidden="true">↓</span></a><a class="text-link" href={pdfPath(locale)} download>{text(locale, '下载 PDF 简历', 'Download PDF résumé')}<Icon name="download" size={17}/></a></div>
+</section>
+<section id="work" class="work-section shell" aria-labelledby="work-title">
+  <div class="section-heading"><h2 id="work-title">{text(locale, '研究与开发', 'Research & development')}</h2><span class="eyebrow">{text(locale, '精选 / 01—04', 'SELECTED / 01—04')}</span></div>
+  <div class="work-grid">{selected.map(project => <ProjectCard project={project} locale={locale}/>)}</div>
+  <a class="all-work-link" href={route(locale, 'projects')}><span>{text(locale, '全部项目', 'All projects')}<span class="count-badge">{String(projects.length).padStart(2, '0')}</span></span><Icon size={24}/></a>
+</section>
+<section id="about" class="about-section shell" aria-labelledby="about-title">
+  <div class="about-heading"><span class="eyebrow">{text(locale, '背景与方法', 'BACKGROUND & APPROACH')}</span><h2 id="about-title">{text(locale, '关于我', 'About me')}</h2></div>
+  <div class="about-copy"><p class="about-lead">{profile.about[locale]}</p><div class="education-note"><span class="eyebrow">{profile.education.period}</span><h3>{profile.education[locale].institution}</h3><p>{profile.education[locale].program}</p><span>{text(locale, '本科毕业', 'Undergraduate education, completed')}</span></div><p class="personal-note">{profile.photography[locale]}</p><a class="text-link" href={route(locale, 'resume')}>{text(locale, '教育、经历与荣誉', 'Education, experience & awards')}<Icon name="up-right" size={18}/></a></div>
+</section>
+<section class="practice-section shell" aria-labelledby="practice-title"><div class="section-heading"><h2 id="practice-title">{text(locale, '技术能力', 'Technical practice')}</h2><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub<Icon name="up-right" size={16}/></a></div><div class="skill-list">{profile.skills.map(skill => <div class="skill-row"><span class="skill-number">{skill.number}</span><h3>{skill[locale]}</h3><p>{skill.tools}</p></div>)}</div></section>

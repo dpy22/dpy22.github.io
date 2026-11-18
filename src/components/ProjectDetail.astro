@@ -1,0 +1,14 @@
+---
+import { getCollection, render } from 'astro:content';
+import Icon from './Icon.astro';
+import ProjectArt from './ProjectArt.astro';
+import { projects, route, text, type Locale, type Project } from '../lib/site';
+interface Props { locale: Locale; project: Project }
+const { locale, project } = Astro.props;
+const copy = project[locale];
+const entries = await getCollection('cases', entry => entry.data.project === project.slug && entry.data.locale === locale);
+if (entries.length !== 1) throw new Error(`Expected one ${locale} case for ${project.slug}`);
+const { Content } = await render(entries[0]);
+const next = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
+---
+<article class="shell case-page"><a class="back-link" href={route(locale, 'projects')}><span aria-hidden="true">←</span>{text(locale, '全部作品', 'All work')}</a><header class="case-header"><div class="case-eyebrow"><span class="eyebrow">{project.number} / {copy.discipline}</span><span>{project.year}</span></div><h1>{copy.title}</h1><p class="case-subtitle">{copy.subtitle}</p><div class="case-facts"><div><span>{text(locale, '我的角色', 'MY ROLE')}</span><p>{copy.role}</p></div><div><span>{text(locale, '项目状态', 'PROJECT STATUS')}</span><p>{copy.status}</p></div><div><span>{text(locale, '工具与方法', 'TOOLS & METHODS')}</span><p>{project.tags.join(' · ')}</p></div></div></header><figure class="case-figure"><ProjectArt kind={project.slug} locale={locale} priority/><figcaption><span>{copy.caption}</span><span>FIG. {project.number}</span></figcaption></figure><section class="case-question"><span class="eyebrow">{text(locale, '开始于一个问题', 'THE STARTING QUESTION')}</span><h2>{copy.question}</h2></section><div class="case-body"><aside class="contribution-panel"><span class="eyebrow">{text(locale, '主要工作', 'CONTRIBUTIONS')}</span><ol>{copy.contributions.map((contribution, index) => <li><span>{String(index+1).padStart(2,'0')}</span><p>{contribution}</p></li>)}</ol>{project.source && <a class="button button-outline" href={project.source} target="_blank" rel="noopener noreferrer">{text(locale, '查看源代码', 'View source')}<Icon name="up-right" size={16}/></a>}</aside><div class="prose"><Content/></div></div><section class="case-outcome"><span class="eyebrow">{text(locale, '成果与当前进展', 'OUTCOME & CURRENT PROGRESS')}</span><p>{copy.result}</p></section><a class="next-project" href={route(locale, `projects/${next.slug}`)}><div><span class="eyebrow">{text(locale, '下一个项目', 'UP NEXT')}</span><h2>{next[locale].title}</h2></div><Icon size={34}/></a></article>

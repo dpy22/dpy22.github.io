@@ -1,0 +1,83 @@
+---
+import { text, type Locale } from '../lib/site';
+interface Props { kind: string; locale: Locale; priority?: boolean }
+const { kind, locale, priority = false } = Astro.props;
+const labels: Record<string, string> = {
+  'thermal-lab': text(locale, '液冷研究平台架构：设备采集、数据服务、三维视图与助手', 'Cooling research architecture: acquisition, data services, 3D view, and assistance'),
+  'liquid-cooling-benchmark': text(locale, '液冷物理模型、FMU 接口与 Python 控制实验的系统结构', 'Physical cooling models connected to FMU interfaces and Python control experiments'),
+  'wind-wake': text(locale, '风力机尾流代理预测的概念图，色带和曲线均为示意', 'A conceptual turbine-wake surrogate; colour bands and curves are illustrative'),
+  'flexible-power': text(locale, '发电、储能与蓄热设备共同参与优化控制的结构示意', 'A conceptual structure for optimising generation, storage, and heat together'),
+  'flypy-typing': text(locale, '双拼键位与练习反馈的功能示意', 'A functional concept of double-pinyin keys and practice feedback'),
+  texasjev: text(locale, '规则引擎、服务器状态与玩家或机器人决策的协议结构', 'Protocol structure linking a rules engine, server state, and human or bot decisions'),
+};
+const id = `art-${kind}`;
+---
+<div class:list={['project-art', `art-${kind}`]}>
+  {kind === 'super-image-border' ? <>
+    <div class="app-cover-copy" aria-hidden="true"><p class="app-wordmark">Photo<br/>Frame<br/>Studio.</p><p class="app-tech">KOTLIN / COMPOSE<br/>NATIVE ANDROID</p></div>
+    <div class="app-screen"><img src={`/images/photo-frame-${locale}.webp`} width="528" height="1147" loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" alt={text(locale, '灵感边框原生编辑器：照片预览、模板和编辑工具，Compose 界面快照', 'Photo Frame Studio native editor: preview, templates, and tools. A Compose UI snapshot.')}/></div>
+  </> : <svg viewBox="0 0 800 520" role="img" aria-label={labels[kind]} xmlns="http://www.w3.org/2000/svg">
+    {kind === 'thermal-lab' ? <>
+      <defs><linearGradient id={id} x1="0" x2="1"><stop stop-color="#263849"/><stop offset="1" stop-color="#172532"/></linearGradient></defs>
+      <path fill="#111e29" d="M0 0h800v520H0z"/>
+      <g fill="none" stroke="#263946" stroke-width="1"><path d="M48 88H752M48 432H752M400 88V432"/>{[150,250,350,450,550,650].map(x => <path d={`M${x} 88V432`}/>)}</g>
+      <text x="48" y="51" fill="#dfe8ed" font-size="16" letter-spacing="3">THERMAL LAB</text>
+      <text x="752" y="51" fill="#a4b6c2" font-size="11" text-anchor="end">SYSTEM ARCHITECTURE</text>
+      <g transform="translate(104 121)">
+        <path d="M0 25 37 0H186L150 25Z" fill="#3a4c5a"/>
+        <path d="M150 25 186 0V257L150 283Z" fill="#1b2b38" stroke="#597080"/>
+        <rect x="0" y="25" width="150" height="258" fill={`url(#${id})`} stroke="#6b818e"/>
+        {Array.from({length:7},(_,i) => <g><rect x="12" y={40+i*31} width="126" height="25" fill="#283b49" stroke="#455b69"/>{Array.from({length:11},(_,j)=><path d={`M${24+j*7} ${48+i*31}v10`} stroke="#728591" stroke-width="2"/>)}<circle cx="122" cy={52+i*31} r="2.5" fill="#9cc8bc"/></g>)}
+      </g>
+      <path d="M80 386H65V149H103M291 149H313V386H289" stroke="#85b8c3" stroke-width="4" fill="none"/>
+      <path d="M326 247H396M396 176V358M396 176H455M396 267H455M396 358H455" stroke="#8ca4b3" stroke-width="1.5" fill="none"/>
+      {[['ACQUISITION',158],['DATA SERVICES',249],['SPATIAL VIEW + AI',340]].map(([label,y]) => <g><rect x="455" y={y} width="280" height="48" fill="#1c2d3a" stroke="#4b6675"/><circle cx="475" cy={Number(y)+24} r="3" fill="#aacabd"/><text x="496" y={Number(y)+29} font-size="13" letter-spacing="1.5" fill="#e0e8e9">{label}</text></g>)}
+      <text x="48" y="478" fill="#9db0ba" font-size="11" letter-spacing="1.3">HARDWARE → DATA → INTERFACE</text>
+      <text x="752" y="478" fill="#9db0ba" font-size="10" text-anchor="end">{text(locale, '架构示意', 'ARCHITECTURE CONCEPT')}</text>
+    </> : kind === 'liquid-cooling-benchmark' ? <>
+      <path fill="#e8eced" d="M0 0h800v520H0z"/>
+      <text x="48" y="52" fill="#334753" font-size="12" letter-spacing="2.4">LIQUID COOLING BENCHMARK</text>
+      <text x="48" y="145" fill="#233c4b" font-size="54" letter-spacing="-2">Q = ṁ cₚ ΔT</text>
+      <text x="49" y="178" fill="#5c6c74" font-size="11" letter-spacing="1.3">PHYSICAL MODELS / REPRODUCIBLE CONTROL</text>
+      <g stroke="#345466" fill="none" stroke-width="2"><path d="M120 280V237H654V280M120 352V394H654V352"/><path d="M239 316H282M438 316H495M609 316H664" stroke-dasharray="5 5"/></g>
+      {[['COLD PLATE',63,157],['RACK',282,157],['CDU',495,114],['PLANT',664,84]].map(([label,x,width]) => <g><rect x={x} y="280" width={width} height="72" fill="#f8f9f7" stroke="#345466" stroke-width="1.5"/><text x={Number(x)+Number(width)/2} y="322" text-anchor="middle" fill="#263f4c" font-size="12" letter-spacing="1">{label}</text></g>)}
+      <path d="m390 231 10 6-10 6m-144 145-10 6 10 6" fill="none" stroke="#345466" stroke-width="2"/>
+      <path d="M48 446H752" stroke="#b7c3c7"/>
+      <text x="48" y="478" fill="#4c626e" font-size="12" letter-spacing="1.2">MODELICA</text><text x="364" y="478" fill="#4c626e" font-size="12" letter-spacing="1.2">FMU</text><text x="752" y="478" text-anchor="end" fill="#4c626e" font-size="12" letter-spacing="1.2">PYTHON</text>
+      <path d="M155 474H336M416 474H660" stroke="#8eaaae"/>
+    </> : kind === 'wind-wake' ? <>
+      <path fill="#e7e4dc" d="M0 0h800v520H0z"/>
+      <defs><linearGradient id={id}><stop stop-color="#486f82" stop-opacity=".65"/><stop offset=".5" stop-color="#91afad" stop-opacity=".55"/><stop offset="1" stop-color="#d0c8b6" stop-opacity="0"/></linearGradient></defs>
+      <text x="48" y="52" fill="#424e4d" font-size="12" letter-spacing="2.4">LEARNING THE WAKE</text>
+      <path d="M251 191C390 167 518 112 800 97V429C549 411 403 345 251 323Z" fill={`url(#${id})`}/>
+      <g fill="none" stroke="#5e8487" stroke-width="1" opacity=".65">{Array.from({length:15},(_,i)=><path d={`M252 ${193+i*9}C405 ${190+i*9},535 ${109+i*23},817 ${106+i*23}`}/>)}</g>
+      <path d="M240 266 233 405H254L248 266Z" fill="#f7f7ee" stroke="#40534f" stroke-width="2"/>
+      <g fill="#f9f9f2" stroke="#40534f" stroke-width="2"><path d="M241 247 231 117Q238 94 245 116L251 245Z"/><path d="M245 247 347 326Q355 342 338 338L237 261Z"/><path d="M240 251 121 300Q103 300 116 287L235 241Z"/><circle cx="243" cy="252" r="12" fill="#c4cbbb"/></g>
+      <path d="M195 412H288M210 420H271" stroke="#586860" stroke-width="2"/>
+      <text x="436" y="396" fill="#334a4a" font-size="18" letter-spacing="1">PHYSICS × LEARNING</text>
+      <text x="438" y="423" fill="#58665f" font-size="11" letter-spacing="1.3">CFD → NEURAL SURROGATE</text>
+      <text x="48" y="478" fill="#58665f" font-size="10">{text(locale, '示意流场 · 非仿真输出', 'ILLUSTRATIVE FIELD · NOT SIMULATION OUTPUT')}</text>
+    </> : kind === 'flypy-typing' ? <>
+      <path fill="#ece8e0" d="M0 0h800v520H0z"/>
+      <text x="64" y="70" fill="#4e514b" font-size="12" letter-spacing="2">FLYPY / TYPING PRACTICE</text>
+      <text x="64" y="160" fill="#262c28" font-size="40">{text(locale, '小鹤双拼', 'Flypy Typing')}</text>
+      {['QWERTYUIOP','ASDFGHJKL','ZXCVBNM'].map((row,i) => row.split('').map((key,j) => <g><rect x={70+j*61+i*20} y={220+i*68} width="53" height="53" rx="4" fill={['H','C'].includes(key)?'#3d5749':'#f8f8f2'} stroke="#b5b8ab"/><text x={96+j*61+i*20} y={254+i*68} text-anchor="middle" font-size="17" fill={['H','C'].includes(key)?'#fff':'#3d493e'}>{key}</text></g>))}
+      <text x="64" y="472" fill="#5e685c" font-size="11" letter-spacing="1.5">C++ / QT / SQLITE</text>
+    </> : kind === 'flexible-power' ? <>
+      <path fill="#283d32" d="M0 0h800v520H0z"/>
+      <text x="48" y="52" fill="#dde5da" font-size="12" letter-spacing="2.4">FLEXIBLE POWER</text>
+      <g fill="none" stroke="#9dab91" stroke-width="2"><path d="M229 191H571V343H229Z"/><path d="M400 191V224M400 296V343"/></g>
+      {[['GENERATION',87,147],['WIND',518,147],['BATTERY',87,299],['HEAT STORAGE',518,299]].map(([label,x,y]) => <g><rect x={x} y={y} width="196" height="88" fill="#354c3c" stroke="#84987d"/><text x={Number(x)+98} y={Number(y)+49} text-anchor="middle" fill="#e6ebde" font-size="13" letter-spacing="1">{label}</text></g>)}
+      <circle cx="400" cy="260" r="40" fill="#cbd5ba"/><path d="m388 245 24 15-24 15" fill="none" stroke="#283d32" stroke-width="3"/>
+      <text x="400" y="426" text-anchor="middle" fill="#c2cfb6" font-size="14" letter-spacing="1.5">TWO-LEVEL PARTICLE SWARM OPTIMISATION</text>
+      <text x="48" y="478" fill="#9eaf96" font-size="10">{text(locale, '多设备协同结构示意', 'EQUIPMENT COORDINATION CONCEPT')}</text>
+    </> : <>
+      <path fill="#e5e6e8" d="M0 0h800v520H0z"/>
+      <text x="48" y="52" fill="#3a424d" font-size="12" letter-spacing="2.4">TEXASJEV / RULES & STATE</text>
+      <text x="48" y="149" fill="#273141" font-size="48" letter-spacing="-2">Deterministic rules.</text><text x="48" y="210" fill="#616a77" font-size="48" letter-spacing="-2">Uncertain decisions.</text>
+      <g fill="none" stroke="#627080" stroke-width="2"><path d="M218 333H294M506 333H582"/></g>
+      {[['RULES',48,170],['SERVER STATE',294,212],['PLAYERS / AI',582,170]].map(([label,x,width])=><g><rect x={x} y="292" width={width} height="82" fill="#f7f7f6" stroke="#627080"/><text x={Number(x)+Number(width)/2} y="338" text-anchor="middle" fill="#273141" font-size="13" letter-spacing="1">{label}</text></g>)}
+      <text x="48" y="478" fill="#616a77" font-size="11" letter-spacing="1">TYPESCRIPT / WEBSOCKET / JEV</text>
+    </>}
+  </svg>}
+</div>

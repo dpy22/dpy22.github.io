@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+import { alternatePath, route, text, type Locale } from '../lib/site';
+interface Props { locale: Locale; kind?: string }
+const { locale, kind = 'home' } = Astro.props;
+const otherLocale = locale === 'zh' ? 'en' : 'zh';
+---
+<header class="site-header">
+  <nav class="shell header-inner" aria-label={text(locale, '主要导航', 'Main navigation')}>
+    <a class="wordmark" href={route(locale)} title={text(locale, '返回首页', 'Home')}><span class="monogram" aria-hidden="true">D.</span><span class="wordmark-name">{text(locale, '段培耀', 'Peiyao Duan')}</span></a>
+    <button type="button" class="menu-toggle" data-menu-toggle popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">{text(locale, '菜单', 'Menu')}<Icon name="menu" size={20}/></button>
+    <ul id="site-menu" class="site-menu" popover="auto">
+      <li><a href={kind === 'home' ? '#work' : route(locale, 'projects')} aria-current={kind === 'projects' || kind === 'project' ? 'page' : undefined}>{text(locale, '项目', 'Work')}</a></li>
+      <li><a href={`${route(locale)}#about`}>{text(locale, '关于', 'About')}</a></li>
+      <li><a href={route(locale, 'resume')} aria-current={kind === 'resume' ? 'page' : undefined}>{text(locale, '简历', 'Résumé')}</a></li>
+      <li><a href="#contact">{text(locale, '联系', 'Contact')}<Icon name="up-right" size={14}/></a></li>
+    </ul>
+    <div class="header-actions">
+      <a class="language-switch" data-language-switch href={alternatePath(Astro.url.pathname, otherLocale)} lang={otherLocale === 'zh' ? 'zh-CN' : 'en'} hreflang={otherLocale === 'zh' ? 'zh-CN' : 'en'} aria-label={text(locale, '中 / EN · Switch to English', '中 / EN · 切换为中文')}><span class:list={{ current: locale === 'zh' }}>中</span><span class="language-divider">/</span><span class:list={{ current: locale === 'en' }}>EN</span></a>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  (() => {
+      const header = document.querySelector('.site-header');
+      const inner = document.querySelector('.header-inner');
+      const menu = document.querySelector('#site-menu');
+      const trigger = document.querySelector('[data-menu-toggle]');
+      if (header && inner && menu && trigger && 'popover' in HTMLElement.prototype) {
+        let previousWidth = 0;
+        let scheduled = false;
+        const measure = () => {
+          scheduled = false;
+          const width = inner.clientWidth;
+          if (!header.classList.contains('is-wide') && width <= previousWidth) return;
+          previousWidth = width;
+          const wasOpen = menu.matches(':popover-open');
+          header.classList.add('is-measuring', 'is-wide');
+          menu.removeAttribute('popover');
+          const wide = inner.scrollWidth <= inner.clientWidth;
+          header.classList.toggle('is-wide', wide);
+          if (!wide) {
+            menu.setAttribute('popover', 'auto');
+            if (wasOpen) menu.showPopover();
+          }
+          requestAnimationFrame(() => header.classList.remove('is-measuring'));
+        };
+        const observer = new ResizeObserver(() => {
+          if (!scheduled) { scheduled = true; requestAnimationFrame(measure); }
+        });
+        observer.observe(inner);
+        observer.observe(menu);
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { if (menu.matches(':popover-open')) menu.hidePopover(); }));
+        measure();
+      }
+  })();
+</script>

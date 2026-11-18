@@ -1,0 +1,60 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { alternatePath, profile, text, type Locale } from '../lib/site';
+interface Props { locale: Locale; title?: string; description?: string; kind?: string; noindex?: boolean }
+const { locale, title, description = profile.description[locale], kind = 'home', noindex = false } = Astro.props;
+const pageTitle = title ? `${title} — ${profile.name[locale]}` : text(locale, '段培耀 — 能源工程、科学计算与软件', 'Peiyao Duan — Energy engineering, computing & software');
+const canonical = new URL(Astro.url.pathname, profile.site).href;
+const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Peiyao Duan', alternateName: '段培耀', url: profile.site, email: `mailto:${profile.email}`, sameAs: [profile.github], alumniOf: { '@type': 'CollegeOrUniversity', name: 'Tsinghua University' } };
+---
+<!doctype html>
+<html lang={locale === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#f9f9f6"/>
+    <meta name="description" content={description}/>
+    <meta name="color-scheme" content="light"/>
+    <link rel="preload" href="/fonts/noto-sans-latin-600.woff2" as="font" type="font/woff2" crossorigin/>
+    {locale === 'zh' && <link rel="preload" href="/fonts/noto-sans-sc-600-site.woff2" as="font" type="font/woff2" crossorigin/>}
+    {noindex && <meta name="robots" content="noindex"/>}
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="canonical" href={canonical}/>
+    <link rel="alternate" hreflang="zh-CN" href={new URL(alternatePath(Astro.url.pathname, 'zh'), profile.site).href}/>
+    <link rel="alternate" hreflang="en" href={new URL(alternatePath(Astro.url.pathname, 'en'), profile.site).href}/>
+    <link rel="alternate" hreflang="x-default" href={new URL(alternatePath(Astro.url.pathname, 'zh'), profile.site).href}/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content={pageTitle}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:url" content={canonical}/>
+    <meta property="og:site_name" content="Peiyao Duan / 段培耀"/>
+    <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : 'en_US'}/>
+    <meta property="og:image" content={`${profile.site}/og-cover.png`}/>
+    <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content={text(locale, '段培耀 · 能源工程、科学计算与软件', 'Peiyao Duan · Energy engineering, computing & software')}/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <script type="application/ld+json" set:html={JSON.stringify(person)}/>
+  </head>
+  <body data-page={kind}>
+    <a class="skip-link" href="#main">{text(locale, '跳转到主要内容', 'Skip to content')}</a>
+    <Header locale={locale} kind={kind}/>
+    <main id="main"><slot/></main>
+    <Footer locale={locale}/>
+    <script>
+      document.querySelectorAll<HTMLAnchorElement>('[data-language-switch]').forEach(link => { if (window.location.hash) link.hash = window.location.hash; link.addEventListener('click', () => { link.hash = window.location.hash; }); });
+      const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+      filterButtons.forEach(button => button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        let count = 0;
+        document.querySelectorAll<HTMLElement>('[data-project-category]').forEach(card => { const show = filter === 'all' || card.dataset.projectCategory === filter; card.hidden = !show; if (show) count++; });
+        const countLabel = document.querySelector<HTMLElement>('[data-project-count]');
+        if (countLabel) countLabel.textContent = String(count).padStart(2, '0');
+      }));
+    </script>
+  </body>
+</html>

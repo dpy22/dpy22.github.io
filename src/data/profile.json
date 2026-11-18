@@ -1,0 +1,121 @@
+{
+  "name": {
+    "zh": "段培耀",
+    "en": "Peiyao Duan"
+  },
+  "email": "dpy22@foxmail.com",
+  "github": "https://github.com/dpy22",
+  "site": "https://dpy22.github.io",
+  "updated": "2026-11-18",
+  "headline": {
+    "zh": [
+      "能源工程",
+      "科学计算与软件"
+    ],
+    "en": [
+      "Energy engineering",
+      "Computing & software"
+    ]
+  },
+  "intro": {
+    "zh": "清华大学未央书院毕业，数理基础科学与能源动力工程背景。研究与开发围绕能源系统建模、科学计算，以及连接模型、数据和使用者的软件。",
+    "en": "Tsinghua University graduate with a background in mathematics, physics, and energy engineering. My work spans physical modelling, scientific computing, and software that connects models, data, and people."
+  },
+  "description": {
+    "zh": "段培耀 / Peiyao Duan。清华大学毕业，关注能源系统、物理建模、科学计算与软件开发。查看研究项目、开源作品与中英文简历。",
+    "en": "Peiyao Duan — Tsinghua University graduate. Energy systems, physical modelling, scientific computing, and software development. Research projects, open-source work, and résumé."
+  },
+  "education": {
+    "period": "2022 — 2026",
+    "zh": {
+      "institution": "清华大学 · 未央书院",
+      "program": "数理基础科学 + 能源与动力工程",
+      "note": "本科毕业。以数理方法理解问题，以工程实践检验想法。"
+    },
+    "en": {
+      "institution": "Tsinghua University · Weiyang College",
+      "program": "Mathematics & Physics + Energy & Power Engineering",
+      "note": "Undergraduate education, completed. A foundation in mathematics, physics, and engineering practice."
+    }
+  },
+  "experience": [
+    {
+      "period": {
+        "zh": "2024 — 2025",
+        "en": "2024 — 2025"
+      },
+      "zh": {
+        "title": "水木汇 · 校园生活服务平台",
+        "role": "前端开发骨干",
+        "text": "参与清点评、班团面板与个人主页开发，引入标准组件库，编写前端设计与开发指南。"
+      },
+      "en": {
+        "title": "Shuimuhui · Campus services",
+        "role": "Front-end development",
+        "text": "Developed campus review, class-group, and profile modules; introduced a component library and wrote front-end guidelines."
+      }
+    },
+    {
+      "period": {
+        "zh": "2024 — 2025",
+        "en": "2024 — 2025"
+      },
+      "zh": {
+        "title": "声学超材料结构设计",
+        "role": "自主研究探索",
+        "text": "设计兼顾吸声与流通的圆环柱状结构，使用 COMSOL 仿真，并通过实验台测量检验。"
+      },
+      "en": {
+        "title": "Acoustic metamaterial design",
+        "role": "Independent course research",
+        "text": "Designed an annular structure balancing sound absorption and airflow, with COMSOL simulation and bench measurements."
+      }
+    }
+  ],
+  "skills": [
+    {
+      "number": "01",
+      "zh": "物理建模与仿真",
+      "en": "Modelling & simulation",
+      "tools": "Modelica · FMU · COMSOL · MATLAB · SolidWorks"
+    },
+    {
+      "number": "02",
+      "zh": "科学计算与学习",
+      "en": "Scientific computing",
+      "tools": "Python · PyTorch · Surrogate models · Optimisation"
+    },
+    {
+      "number": "03",
+      "zh": "软件与交互",
+      "en": "Software & interaction",
+      "tools": "TypeScript · React · FastAPI · Kotlin / Compose · C++ / Qt"
+    }
+  ],
+  "awards": [
+    {
+      "zh": "第十八届全国大学生节能减排社会实践与科技竞赛 · 三等奖",
+      "en": "18th National University Energy Conservation & Emission Reduction Competition · Third Prize"
+    },
+    {
+      "zh": "清华大学第四十二届“挑战杯” · 二等奖",
+      "en": "42nd Tsinghua University Challenge Cup · Second Prize"
+    },
+    {
+      "zh": "第十八届能源动力设计大赛 · 二等奖",
+      "en": "18th Energy & Power Design Competition · Second Prize"
+    },
+    {
+      "zh": "综合优秀奖学金、科技创新优秀奖学金 · 2024",
+      "en": "Comprehensive Excellence & Science and Technology Innovation Scholarships · 2024"
+    }
+  ],
+  "about": {
+    "zh": "我的学习和实践横跨数理、能源与软件。研究中，我关注物理模型的边界、数据的来源和实验是否可以复现；开发中，我关心系统能否被理解、维护，并真正用于解决问题。",
+    "en": "My studies and projects connect mathematics, energy, and software. In research, I care about model boundaries, data provenance, and reproducibility. In development, I focus on systems that people can understand, maintain, and use."
+  },
+  "photography": {
+    "zh": "工作之外喜欢摄影，是视觉中国签约摄影师。",
+    "en": "Outside my technical work, I enjoy photography and am a contracted contributor to Visual China Group."
+  }
+}
