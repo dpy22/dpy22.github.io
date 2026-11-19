@@ -11,9 +11,9 @@
       "Control"
     ],
     "zh": {
-      "title": "AI 数据中心液冷系统建模与控制",
+      "title": "AI 数据中心液冷控制的 Modelica 仿真基准",
       "discipline": "物理建模 / 控制实验",
-      "summary": "用 Modelica 建立液冷系统模型，通过 FMU 接入 Python 控制实验。",
+      "summary": "建立从冷板到冷源的分层物理模型，通过 FMU 接入 Python，在统一工况下比较控制策略。",
       "role": "模型与实验工具开发",
       "status": "研究与验证持续进行",
       "question": "如何建立层次清晰、可验证的数据中心液冷被控对象，使不同控制方法能够在一致条件下比较？",
@@ -25,9 +25,9 @@
       "result": "形成从物理模型、FMU 接口到控制实验与结果整理的研究链路。当前工作属于持续验证中的研究项目。"
     },
     "en": {
-      "title": "Modelling and Control of Liquid Cooling for AI Data Centres",
+      "title": "Modelica Benchmark for Liquid Cooling Control in AI Data Centres",
       "discipline": "Physical modelling / Control",
-      "summary": "I develop Modelica models for liquid-cooling systems and connect them to Python control experiments through FMUs.",
+      "summary": "Hierarchical models from cold plates to the cooling plant connect to Python via FMUs for controller comparisons under common operating conditions.",
       "role": "Model & experimental tooling development",
       "status": "Research & validation · Ongoing",
       "question": "How can a hierarchical, verifiable liquid-cooling plant support comparisons of controllers under consistent conditions?",
@@ -51,9 +51,9 @@
       "Digital twin"
     ],
     "zh": {
-      "title": "液冷实验监测与 AI 助手",
+      "title": "面向液冷实验的可追溯 AI 助手",
       "discipline": "AI 应用 / 工程系统集成",
-      "summary": "把设备测点和历史数据接入 Thermal Lab，支持通过文字与语音查询实验数据。",
+      "summary": "通过文字和语音查询设备测点与历史数据。界面分别呈现操作确认、设备回执和实际观测状态。",
       "role": "AI 助手与平台集成开发",
       "status": "持续开发中的研究平台",
       "question": "如何把设备采集、运行监测、实验数据和辅助问答组织为一个可理解、可追溯的工作环境？",
@@ -65,9 +65,9 @@
       "result": "连接实验数据与文字、语音助手，形成可追溯的监测与查询环境；设备控制效果与模型精度仍在分别验证。"
     },
     "en": {
-      "title": "Liquid Cooling Lab Monitoring with an AI Assistant",
+      "title": "Traceable AI Assistant for Liquid Cooling Experiments",
       "discipline": "AI applications / Engineering systems",
-      "summary": "Thermal Lab brings sensor readings and historical records together for text and voice queries about cooling experiments.",
+      "summary": "Text and voice queries draw on sensor readings and historical data. The interface distinguishes operation confirmation, device acknowledgements and observed state.",
       "role": "AI assistance & platform integration",
       "status": "Research platform · Ongoing",
       "question": "How can device acquisition, monitoring, experimental records, and assisted inquiry become one understandable, traceable workspace?",
@@ -90,9 +90,9 @@
       "Scientific ML"
     ],
     "zh": {
-      "title": "漂浮式风机尾流的神经网络预测",
+      "title": "物理引导的浮式风机尾流神经代理模型",
       "discipline": "机器学习 / 物理代理模型",
-      "summary": "结合物理解析模型与卷积神经网络，使用 CFD 数据研究尾流代理预测。",
+      "summary": "基于 CFD 数据，将物理解析模型与卷积网络结合，并用 PyTorch 探索预训练、微调和自监督学习。",
       "role": "SRT 项目研究参与",
       "status": "完成阶段研究 · 2024.09—2025.08",
       "question": "如何利用已有 CFD 数据与物理先验，提高风力机尾流场预测的效率？",
@@ -104,9 +104,9 @@
       "result": "项目获第十八届全国大学生节能减排社会实践与科技竞赛三等奖，完成物理先验与数据驱动相结合的尾流代理预测阶段研究。"
     },
     "en": {
-      "title": "Neural Wake Prediction for Floating Wind Turbines",
+      "title": "Physics-Guided Neural Surrogate for Floating Wind Turbine Wakes",
       "discipline": "Machine learning / Neural surrogates",
-      "summary": "A physics-based analytical model and a convolutional network work together to predict wakes from CFD data.",
+      "summary": "The study couples a physical analytical model with a convolutional network using CFD data. PyTorch experiments explore pretraining, fine-tuning and self-supervised learning.",
       "role": "Student Research Training participant",
       "status": "Research stage completed · Sep 2024–Aug 2025",
       "question": "How can CFD data and physical priors support more efficient predictions of wind-turbine wake fields?",
@@ -130,9 +130,9 @@
     ],
     "source": "https://github.com/dpy22/TexasJev",
     "zh": {
-      "title": "带 Jev AI 对手的实时多人德州扑克",
+      "title": "实时多人系统中的规则约束 AI 决策",
       "discipline": "AI 决策 / 全栈工程",
-      "summary": "接入 TypeSafe 的 Jev 决策模型，由服务端校验行动，在调用失败时回退，并通过 WebSocket 同步牌桌状态。",
+      "summary": "在多人德州扑克牌桌中接入 Jev 决策模型。服务端校验模型动作、处理超时回退，并通过 WebSocket 同步牌局。",
       "role": "AI 决策集成与全栈开发",
       "status": "开源实验 · 多设备实测仍有待完成",
       "question": "如何让确定性的牌局规则与不确定的 AI 决策，在多人交互中保持清晰边界？",
@@ -144,9 +144,9 @@
       "result": "公开源码包含规则、网络及模型调用测试记录；多台物理设备连续对局验收仍待完成。"
     },
     "en": {
-      "title": "Real-Time Multiplayer Texas Hold’em with Jev AI Opponents",
+      "title": "Rule-Constrained AI Decisions in a Real-Time Multiplayer System",
       "discipline": "AI decisions / Full-stack engineering",
-      "summary": "AI opponents use TypeSafe’s Jev decision model. The server validates actions, handles fallbacks and synchronises the table over WebSocket.",
+      "summary": "In a multiplayer Texas Hold'em prototype, the server validates actions proposed by Jev, applies a local fallback on timeout and synchronises state over WebSocket.",
       "role": "AI decision integration & full-stack development",
       "status": "Open-source experiment · Physical-device testing pending",
       "question": "How can deterministic game rules and uncertain AI decisions maintain clear boundaries in a multiplayer system?",
@@ -171,9 +171,9 @@
     ],
     "source": "https://github.com/dpy22/super-image-border",
     "zh": {
-      "title": "灵感边框 · Android 照片编辑器",
+      "title": "端侧高分辨率图像渲染与导出",
       "discipline": "Android / 图像处理",
-      "summary": "用 Kotlin 和 Jetpack Compose 开发原生编辑器。照片预览和原尺寸导出共用同一套场景模型。",
+      "summary": "Android 编辑器使用共享场景模型进行预览和原尺寸导出，以分区解码与条带编码处理大尺寸图像。",
       "role": "应用设计与开发",
       "status": "开源原生应用 · 持续迭代",
       "question": "如何在流畅的移动编辑体验与大尺寸照片的可靠导出之间，保持版式、色彩和元数据处理的一致性？",
@@ -185,9 +185,9 @@
       "result": "2.0 系列源码公开，已形成原生编辑、色彩管理与批量导出链路。仓库保留界面快照和设备验收记录；HDR 等能力受 Android 版本、设备和编辑模式约束。"
     },
     "en": {
-      "title": "Photo Frame Studio for Android",
+      "title": "On-Device Rendering and Export of High-Resolution Images",
       "discipline": "Android / Image processing",
-      "summary": "A native Kotlin and Jetpack Compose editor uses one scene model for previews and full-resolution export.",
+      "summary": "An Android editor uses a shared scene model for preview and full-resolution export, with region decoding and strip encoding for large images.",
       "role": "Application design & development",
       "status": "Open-source native application · Ongoing",
       "question": "How can a responsive mobile editor preserve layout, colour, and metadata decisions when exporting large photographs?",
@@ -210,9 +210,9 @@
       "Energy"
     ],
     "zh": {
-      "title": "面向风电消纳的灵活电源运行优化",
+      "title": "发电与储能协同运行的双层粒子群优化",
       "discipline": "能源系统 / 优化控制",
-      "summary": "结合 AGC 指令和风电出力，用双层粒子群优化协调发电、储能与蓄热设备运行。",
+      "summary": "以 AGC 指令和风电出力为输入，结合设备状态与运行经济性，协调发电、电储能和蓄热设备。",
       "role": "共同一作 · 算法与界面开发",
       "status": "竞赛项目 · 已登记软件著作权",
       "question": "当可再生能源出力变化时，如何协调发电与储能设备的运行？",
@@ -224,9 +224,9 @@
       "result": "获清华大学第四十二届“挑战杯”二等奖、第十八届能源动力设计大赛二等奖，并登记软件著作权。"
     },
     "en": {
-      "title": "Flexible Power System Optimisation for Wind Integration",
+      "title": "Two-Level Particle Swarm Optimisation for Generation and Storage",
       "discipline": "Energy systems / Optimisation",
-      "summary": "The study uses two-level particle swarm optimisation to coordinate generation, batteries and heat storage under AGC commands and wind generation.",
+      "summary": "The study uses AGC commands and wind output to coordinate generation, batteries and heat storage, accounting for equipment state and operating economics.",
       "role": "Co-first contributor · Algorithms & interface",
       "status": "Competition project · Software copyright registered",
       "question": "How can generation and storage respond together as renewable power output changes?",
@@ -250,9 +250,9 @@
     ],
     "source": "https://github.com/dpy22/typewriting",
     "zh": {
-      "title": "小鹤双拼练习工具",
+      "title": "小鹤双拼训练的实时输入反馈",
       "discipline": "桌面软件 / 学习工具",
-      "summary": "用 Qt 开发双拼练习软件，提供键位提示、实时纠错和练习统计。",
+      "summary": "C++ 与 Qt 桌面应用根据练习文本高亮双拼键位，记录错字、回改和打字速度。",
       "role": "合作开发 · 与包戴宁共同完成",
       "status": "开源课程作品",
       "question": "如何帮助初学者在真实输入中建立小鹤双拼的键位记忆？",
@@ -264,9 +264,9 @@
       "result": "形成可运行的课程作品，仓库公开；作者为段培耀与包戴宁。"
     },
     "en": {
-      "title": "Xiaohe Shuangpin Typing Tutor",
+      "title": "Real-Time Input Feedback for Xiaohe Shuangpin Practice",
       "discipline": "Desktop software / Learning tools",
-      "summary": "A Qt typing tutor with Xiaohe Shuangpin key hints, immediate corrections and practice statistics.",
+      "summary": "A C++ and Qt desktop app highlights the keys for each Shuangpin syllable and tracks errors, corrections and typing speed.",
       "role": "Co-developed with Daining Bao",
       "status": "Open-source course project",
       "question": "How can new learners build muscle memory for Flypy double-pinyin through actual typing?",

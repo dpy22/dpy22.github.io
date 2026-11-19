@@ -39,12 +39,12 @@
         "en": "2024 — 2025"
       },
       "zh": {
-        "title": "水木汇 · 校园生活服务平台",
+        "title": "校园服务平台前端工程（水木汇）",
         "role": "前端开发骨干",
         "text": "参与清点评、班团面板与个人主页开发，引入标准组件库，编写前端设计与开发指南。"
       },
       "en": {
-        "title": "Shuimuhui · Campus services",
+        "title": "Campus Services Frontend Engineering (Shuimuhui)",
         "role": "Front-end development",
         "text": "Developed campus review, class-group, and profile modules; introduced a component library and wrote front-end guidelines."
       }
@@ -55,12 +55,12 @@
         "en": "2024 — 2025"
       },
       "zh": {
-        "title": "声学超材料结构设计",
+        "title": "通风吸声超材料的结构设计与仿真",
         "role": "自主研究探索",
         "text": "设计兼顾吸声与流通的圆环柱状结构，使用 COMSOL 仿真，并通过实验台测量检验。"
       },
       "en": {
-        "title": "Acoustic metamaterial design",
+        "title": "Design and Simulation of a Ventilated Acoustic Metamaterial",
         "role": "Independent course research",
         "text": "Designed an annular structure balancing sound absorption and airflow, with COMSOL simulation and bench measurements."
       }
