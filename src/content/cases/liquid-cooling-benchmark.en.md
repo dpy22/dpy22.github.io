@@ -4,7 +4,7 @@ locale: en
 ---
 ## Defining the model boundary first
 
-Data-centre cooling spans cold plates, servers, racks, CDUs, and the cooling plant. Models are organised hierarchically, giving each component a physical meaning, an interface, and parameter provenance before connecting it to a larger system.
+As computing workloads change, so does the heat that servers need to dissipate. This project models liquid cooling for AI data centres, from cold plates and racks to CDUs and the cooling plant. Models are organised hierarchically, giving each component a physical meaning, an interface, and parameter provenance before connecting it to a larger system.
 
 Conservation of mass, momentum, and energy constrains the model. Component checks and system-response checks help reveal problems in connections and assumptions; simplified models retain explicit validity boundaries.
 

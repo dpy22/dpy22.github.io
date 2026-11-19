@@ -8,27 +8,16 @@
   "site": "https://dpy22.github.io",
   "updated": "2026-11-19",
   "focus": {
-    "zh": "AI 应用 · 科学机器学习 · 软件工程",
-    "en": "AI applications · Scientific ML · Software engineering"
-  },
-  "focusLabel": "AI / SCIENTIFIC ML / SOFTWARE",
-  "headline": {
-    "zh": [
-      "AI 应用与软件开发",
-      "科学机器学习"
-    ],
-    "en": [
-      "AI applications & software",
-      "Scientific machine learning"
-    ]
+    "zh": "AI 数据中心的算热协同",
+    "en": "Coordinating Compute and Cooling in AI Data Centres"
   },
   "intro": {
-    "zh": "清华大学未央书院毕业，具备数理与能源工程背景。关注 AI 应用开发与科学机器学习，实践涵盖工程场景中的 AI 助手、结合物理先验的神经网络预测，以及 AI 决策与软件系统的集成。",
-    "en": "Tsinghua University graduate with a background in mathematics, physics, and energy engineering. I work on AI applications and scientific machine learning: engineering assistants, neural prediction with physical priors, and AI decisions integrated into software."
+    "zh": "我关注算力负载和冷却系统如何协同。目前主要做数据中心液冷系统建模、仿真与控制实验，也开发用于实验监测和数据查询的 AI 工具。",
+    "en": "I study how computing workloads and cooling systems interact in AI data centres. My current work covers liquid-cooling system modelling and control experiments, as well as software for lab monitoring and AI-assisted data queries."
   },
   "description": {
-    "zh": "段培耀 / Peiyao Duan。清华大学毕业，关注 AI 应用开发、科学机器学习与软件工程。查看 AI 助手、PyTorch 神经网络预测、AI 决策集成等项目，以及中英文求职简历。",
-    "en": "Peiyao Duan — Tsinghua University graduate working on AI applications, scientific machine learning, and software engineering. AI assistants, PyTorch neural prediction, AI decision integration, and a bilingual résumé."
+    "zh": "段培耀，清华大学毕业，关注 AI 数据中心的算热协同。研究与项目包括液冷系统建模与控制、实验监测与 AI 助手、风机尾流预测。",
+    "en": "Peiyao Duan, a Tsinghua University graduate studying compute and cooling in AI data centres. Projects include liquid-cooling control, AI-assisted lab monitoring, and neural wake prediction."
   },
   "education": {
     "period": "2022 — 2026",
@@ -79,22 +68,19 @@
   ],
   "skills": [
     {
-      "number": "01",
+      "zh": "工程建模与仿真",
+      "en": "Engineering modelling & simulation",
+      "tools": "Modelica · FMU · COMSOL · MATLAB · SolidWorks"
+    },
+    {
       "zh": "机器学习与科学计算",
       "en": "Machine learning & scientific computing",
       "tools": "Python · PyTorch · CNN · Surrogate models · Optimisation"
     },
     {
-      "number": "02",
       "zh": "AI 应用与软件工程",
       "en": "AI applications & software engineering",
       "tools": "TypeScript · React · FastAPI · WebSocket · Kotlin / Compose"
-    },
-    {
-      "number": "03",
-      "zh": "工程建模与仿真",
-      "en": "Engineering modelling & simulation",
-      "tools": "Modelica · FMU · COMSOL · MATLAB · SolidWorks"
     }
   ],
   "awards": [
@@ -116,7 +102,7 @@
     }
   ],
   "about": {
-    "zh": "我希望把数理基础与软件实现结合起来，参与 AI 应用和机器学习相关的研发工作。已有实践覆盖 PyTorch 代理模型、文字与语音助手，以及实时应用中的 AI 决策集成。我关注训练与验证是否可复现，也关注模型接入后的状态管理、失败回退和用户交互。",
-    "en": "I am seeking development roles in AI applications and machine learning, combining a mathematical foundation with software implementation. My projects span PyTorch surrogate models, text and voice assistants, and AI decisions in real-time applications. I focus on reproducible evaluation, state management, failure handling, and usable interfaces."
+    "zh": "我在清华大学学习数理基础科学和能源与动力工程。现在，我用热流体模型和控制实验研究数据中心的冷却系统，也编写工具整理和查询实验数据。支教期间，我在拉萨教授信息科技，设计 Scratch 和网页项目课。",
+    "en": "I studied mathematics, physics, and energy and power engineering at Tsinghua University. I now use thermofluid models and control experiments to study data centre cooling and build tools to organise and query lab data. During my volunteer teaching placement in Lhasa, I teach computing and design Scratch and web project lessons."
   }
 }

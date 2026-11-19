@@ -4,7 +4,7 @@ locale: en
 ---
 ## Connecting AI decisions to verifiable rules
 
-TexasJev integrates Jev decisions into a six-seat play-chip application. The rules engine determines legal actions and settlement; the model proposes a decision through a constrained interface, and the server checks it against the current state. My work covers AI integration, the rules engine, and the real-time application.
+TexasJev is a real-time six-seat Texas Hold’em application that uses play chips. AI opponents call TypeSafe’s Jev decision model to choose actions. The server’s rules engine validates each action against the current hand and handles settlement. I worked on model integration, the rules engine and the real-time application.
 
 ## Engineering the model-call lifecycle
 

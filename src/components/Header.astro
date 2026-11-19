@@ -10,7 +10,7 @@ const otherLocale = locale === 'zh' ? 'en' : 'zh';
     <a class="wordmark" href={route(locale)} title={text(locale, '返回首页', 'Home')}><span class="monogram" aria-hidden="true">D.</span><span class="wordmark-name">{text(locale, '段培耀', 'Peiyao Duan')}</span></a>
     <button type="button" class="menu-toggle" data-menu-toggle popovertarget="site-menu" popovertargetaction="toggle" aria-controls="site-menu">{text(locale, '菜单', 'Menu')}<Icon name="menu" size={20}/></button>
     <ul id="site-menu" class="site-menu" popover="auto">
-      <li><a href={kind === 'home' ? '#work' : route(locale, 'projects')} aria-current={kind === 'projects' || kind === 'project' ? 'page' : undefined}>{text(locale, '项目', 'Work')}</a></li>
+      <li><a href={kind === 'home' ? '#work' : route(locale, 'projects')} aria-current={kind === 'projects' || kind === 'project' ? 'page' : undefined}>{text(locale, '项目', 'Projects')}</a></li>
       <li><a href={`${route(locale)}#about`}>{text(locale, '关于', 'About')}</a></li>
       <li><a href={route(locale, 'resume')} aria-current={kind === 'resume' ? 'page' : undefined}>{text(locale, '简历', 'Résumé')}</a></li>
       <li><a href="#contact">{text(locale, '联系', 'Contact')}<Icon name="up-right" size={14}/></a></li>

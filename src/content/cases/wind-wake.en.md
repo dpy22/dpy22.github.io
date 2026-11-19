@@ -16,4 +16,4 @@ My contribution focused on the physical analytical model, convolutional network,
 
 ## Research outcome
 
-The research stage ran from September 2024 to August 2025. The project received Third Prize in the 18th National University Energy Conservation & Emission Reduction Competition. The streamlines on this page are conceptual illustrations, not model output.
+The research stage ran from September 2024 to August 2025. The project received Third Prize in the 18th National University Energy Conservation & Emission Reduction Competition.

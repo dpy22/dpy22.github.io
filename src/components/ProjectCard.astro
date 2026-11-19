@@ -1,15 +1,18 @@
 ---
-import ProjectArt from './ProjectArt.astro';
 import Icon from './Icon.astro';
-import { route, text, type Locale, type Project } from '../lib/site';
+import { route, type Locale, type Project } from '../lib/site';
+
 interface Props { project: Project; locale: Locale; headingLevel?: 2 | 3 }
 const { project, locale, headingLevel = 3 } = Astro.props;
 const Heading = headingLevel === 2 ? 'h2' : 'h3';
 const copy = project[locale];
 ---
-<article class="work-card" data-project-category={project.category}>
-  <a class="work-card-link" href={route(locale, `projects/${project.slug}`)}>
-    <div class="work-image"><ProjectArt kind={project.slug} locale={locale}/><span class="image-corner" aria-hidden="true"><Icon name="up-right" size={22}/></span></div>
-    <div class="work-copy"><div class="work-meta"><span>{project.number} / {copy.discipline}</span><span>{project.year}</span></div><div class="work-title-row"><Heading class="work-title">{copy.title}</Heading><Icon name="up-right" size={24}/></div><p class="work-subtitle">{copy.subtitle}</p><p class="work-summary">{copy.summary}</p><div class="work-tags">{project.tags.map(tag => <span>{tag}</span>)}</div><span class="sr-only">{text(locale, '了解项目', 'Explore project')}</span></div>
+<article class="project-row" data-project-category={project.category}>
+  <a class="project-link" href={route(locale, `projects/${project.slug}`)}>
+    <div class="project-copy">
+      <Heading class="project-title">{copy.title}</Heading>
+      <p class="project-summary">{copy.summary}</p>
+    </div>
+    <span class="project-meta"><span>{project.year}</span><Icon size={19}/></span>
   </a>
 </article>

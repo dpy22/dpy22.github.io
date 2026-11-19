@@ -26,7 +26,7 @@ assert.equal(profile.email, 'dpy22@foxmail.com');
 assert.equal(projects.length, 7);
 assert.equal(new Set(projects.map(p => p.slug)).size, 7);
 assert.equal(projects.filter(p => p.featured).length, 4);
-const required = ['title','subtitle','discipline','summary','role','status','question','contributions','result','caption'];
+const required = ['title','discipline','summary','role','status','question','contributions','result'];
 const publicSources = new Set(['https://github.com/dpy22/super-image-border','https://github.com/dpy22/typewriting','https://github.com/dpy22/TexasJev']);
 for (const project of projects) {
   assert.match(project.slug, /^[a-z0-9-]+$/);

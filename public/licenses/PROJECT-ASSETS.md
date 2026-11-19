@@ -15,6 +15,3 @@ Original files under
 These are interface snapshots containing the application's generated sample
 image, not photographs by Peiyao Duan. See the upstream `LICENSE` and
 `docs/TEST-PHOTOS.md` for the repository's licence and sample-asset notes.
-
-Other project cover diagrams are explanatory illustrations created for this
-portfolio. Their captions distinguish them from measured or simulated results.
