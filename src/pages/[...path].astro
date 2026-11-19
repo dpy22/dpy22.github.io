@@ -17,7 +17,7 @@ export function getStaticPaths() {
 interface Props { locale: Locale; kind: string; slug: string }
 const { locale, kind, slug } = Astro.props;
 const project = projects.find(item => item.slug === slug);
-const title = kind === 'projects' ? text(locale, '作品与探索', 'Work & explorations') : kind === 'resume' ? text(locale, '简历', 'Résumé') : project?.[locale].title;
+const title = kind === 'projects' ? text(locale, '研究与项目', 'Research and projects') : kind === 'resume' ? text(locale, '简历', 'Résumé') : project?.[locale].title;
 ---
 <Base locale={locale} title={title} kind={kind} description={project?.[locale].summary}>
   {kind === 'home' && <Home locale={locale}/>}

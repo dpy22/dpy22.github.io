@@ -41,10 +41,7 @@
   .button { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; padding: .8rem 1.25rem; min-block-size: 3rem; font-size: .875rem; font-weight: 500; border: 1px solid transparent; transition: background .2s, color .2s; }
   .button-primary { background: var(--ink); color: var(--paper); }
   .button-primary:hover { background: var(--accent); }
-  .button-outline { border-color: currentColor; }
-  .button-outline:hover { background: var(--ink); color: var(--paper); }
   .button-text:hover { text-decoration: underline; }
-  .sr-only { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .skip-link { position: fixed; z-index: 100; inset-block-start: .5rem; inset-inline-start: var(--gutter); padding: .7rem 1rem; background: var(--ink); color: white; translate: 0 -200%; }
   .skip-link:focus { translate: 0; outline-color: var(--paper); }
   @media (prefers-reduced-motion: reduce) {
@@ -91,135 +88,76 @@
     .menu-toggle { display: none; }
   }
 
-  .hero { padding-block-start: 3rem; }
-  .hero-topline { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); }
-  .hero-copy { display: grid; grid-template-columns: 1.25fr 1fr; gap: 6rem; align-items: end; padding-block: 4.5rem 4rem; }
-  .hero h1 { font-size: clamp(4.75rem, 3.3rem + 4.2vw, 8rem); font-weight: 600; letter-spacing: -.065em; line-height: 1.12; }
-  .hero h1.name-en { font-size: clamp(4.5rem, 3rem + 4.5vw, 8.5rem); letter-spacing: -.075em; line-height: .98; }
-  .hero-other-name { display: block; margin-block-start: 1.6rem; font-size: 1.25rem; line-height: 1.5; letter-spacing: .02em; font-weight: 400; }
-  .hero h1.name-en .hero-other-name { font-size: 1.125rem; letter-spacing: .2em; }
-  .hero-profile { padding-block-end: .3rem; max-inline-size: 31rem; }
-  .hero-discipline { font-size: clamp(1.5rem, 1.15rem + 1vw, 2.125rem); line-height: 1.4; font-weight: 500; letter-spacing: -.035em; }
-  .hero-discipline > span { display: block; }
-  .hero-description { margin-block: 1.5rem 1.2rem; max-inline-size: 48ch; font-size: 1rem; line-height: 1.9; color: var(--muted); }
-  .hero-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-block-start: 1px solid var(--line); padding-block: 1.25rem; }
-  .hero-work-link { display: inline-flex; align-items: center; gap: 3rem; min-block-size: 2.75rem; font-size: .875rem; }
-  .hero-work-link span { font-size: 1.5rem; }
-  .hero-work-link:hover span { translate: 0 .2rem; }
-  .section-heading { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; margin-block-end: 2rem; }
-  .section-heading h2 { font-size: clamp(1.5rem, 1.1rem + 1vw, 2.125rem); letter-spacing: -.035em; }
-  .section-heading > .eyebrow { color: var(--muted); text-align: end; }
-  .work-section { padding-block: 4rem 5rem; }
-  .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem 2rem; }
-  .work-card { min-inline-size: 0; container-type: inline-size; }
-  .work-card-link { display: block; }
-  .work-image { position: relative; overflow: hidden; background: var(--soft); aspect-ratio: 8 / 5.2; }
-  .image-corner { position: absolute; inset-block-start: 1rem; inset-inline-end: 1rem; display: grid; place-items: center; inline-size: 2.5rem; aspect-ratio: 1; background: #ffffffec; color: var(--ink); opacity: 0; translate: -.25rem .25rem; transition: opacity .2s, translate .2s; }
-  .work-card-link:hover .image-corner, .work-card-link:focus-visible .image-corner { opacity: 1; translate: 0; }
-  .work-copy { padding-block-start: 1.25rem; }
-  .work-meta { display: flex; justify-content: space-between; gap: .75rem; font-size: .6875rem; color: var(--muted); }
-  .work-meta > span:last-child { white-space: nowrap; }
-  .work-title-row { display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-block: .65rem .45rem; }
-  .work-title-row > svg { flex: 0 0 auto; margin-block-start: .3rem; transition: translate .2s; }
-  .work-card-link:hover .work-title-row > svg { translate: .2rem -.2rem; }
-  .work-title { font-size: clamp(1.25rem, 1rem + .7vw, 1.875rem); letter-spacing: -.035em; }
-  .work-subtitle { font-size: .875rem; line-height: 1.7; }
-  .work-summary { max-inline-size: 55ch; margin-block-start: .75rem; font-size: .875rem; line-height: 1.8; color: var(--muted); }
-  .work-tags { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-block-start: 1.25rem; font-size: .6875rem; color: var(--muted); }
-  @container (max-width: 25rem) {
-    .work-meta { flex-direction: column; gap: .15rem; }
-    .work-title { font-size: 1.375rem; }
-    .work-copy { padding-block-start: 1rem; }
-  }
-  .all-work-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-block-start: 3rem; padding-block: 1.5rem; border-block: 1px solid var(--line); font-size: 1.125rem; }
-  .all-work-link > span { display: flex; align-items: center; gap: 1rem; }
-  .count-badge { font-size: .75rem; color: var(--muted); }
-  .all-work-link:hover { border-color: var(--ink); }
-  .about-section { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; border-block-start: 1px solid var(--line); padding-block: 5rem; }
-  .about-heading > .eyebrow { color: var(--muted); }
-  .about-heading h2 { margin-block-start: 1.2rem; font-size: clamp(2rem, 1.5rem + 1.8vw, 3.5rem); letter-spacing: -.04em; }
-  .about-lead { font-size: 1.125rem; line-height: 1.95; max-inline-size: 52ch; }
-  .education-note { margin-block: 2.5rem 1.75rem; padding-block: 1.6rem; border-block: 1px solid var(--line); }
-  .education-note .eyebrow { color: var(--muted); }
-  .education-note h3 { font-size: 1.125rem; margin-block: .6rem .4rem; }
-  .education-note p { font-size: .875rem; }
-  .education-note > span:last-child { font-size: .75rem; color: var(--muted); }
-  .practice-section { padding-block: 1rem 6rem; }
-  .skill-list { border-block-start: 1px solid var(--line); }
-  .skill-row { display: grid; grid-template-columns: 3rem 1fr 1.8fr; align-items: baseline; gap: 1rem; padding-block: 1.6rem; border-block-end: 1px solid var(--line); }
-  .skill-number { font-size: .75rem; color: var(--muted); }
-  .skill-row h3 { font-size: 1.0625rem; font-weight: 500; }
-  .skill-row p { font-size: .8125rem; color: var(--muted); }
+  .hero { padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4.4vw, 4.25rem); }
+  .hero-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .hero-name h1 { font-size: clamp(3rem, 2.05rem + 3.65vw, 6rem); letter-spacing: -.065em; }
+  .hero-other-name { margin-block-start: .65rem; font-size: 1.125rem; color: var(--muted); }
+  .hero-profile { max-inline-size: 39rem; }
+  .hero-discipline { font-size: clamp(1.45rem, 1.15rem + 1.35vw, 2.35rem); line-height: 1.28; font-weight: 600; letter-spacing: -.035em; text-wrap: balance; }
+  .hero-description { margin-block-start: 1rem; max-inline-size: 60ch; color: var(--muted); }
+  .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .7rem 1.35rem; margin-block-start: 1.45rem; }
+  .hero-actions .button span { font-size: 1.125rem; line-height: 1; }
+  .work-section { padding-block: 1.4rem 3.5rem; border-block-start: 1px solid var(--line); }
+  .section-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; margin-block-end: .8rem; }
+  .section-heading h2, .about-section h2 { font-size: clamp(1.45rem, 1.05rem + 1.2vw, 2.15rem); letter-spacing: -.035em; }
+  .project-list { border-block-start: 1px solid var(--line); }
+  .project-row { border-block-end: 1px solid var(--line); }
+  .project-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .6rem 2rem; padding-block: 1.3rem; }
+  .project-title { font-size: clamp(1.125rem, .96rem + .7vw, 1.55rem); line-height: 1.4; letter-spacing: -.025em; }
+  .project-summary { max-inline-size: 74ch; margin-block-start: .38rem; font-size: .9375rem; color: var(--muted); text-wrap: pretty; }
+  .project-meta { display: flex; align-items: center; gap: clamp(.75rem, 2.5vw, 2rem); color: var(--muted); white-space: nowrap; font-size: .8125rem; }
+  .project-meta > svg { color: var(--accent); flex-shrink: 0; transition: translate .2s; }
+  .project-link:hover .project-title { text-decoration: underline; }
+  .project-link:hover .project-meta > svg { translate: .15rem 0; }
 
-  /* The project catalogue keeps supporting projects easy to scan. */
-  .index-page { padding-block: 4rem 6rem; }
-  .page-intro { max-inline-size: 56rem; }
-  .page-intro > .eyebrow { color: var(--muted); }
-  .page-intro h1 { margin-block: 1.5rem; font-size: clamp(2.75rem, 2rem + 3vw, 5rem); letter-spacing: -.055em; }
-  .page-intro p { max-inline-size: 55ch; color: var(--muted); }
-  .project-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-block: 3.5rem 0; padding-block: 1rem; border-block-end: 1px solid var(--line); }
+  .about-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 3rem; border-block-start: 1px solid var(--line); padding-block: 3.5rem 4rem; }
+  .about-lead { font-size: 1.0625rem; line-height: 1.85; max-inline-size: 62ch; }
+  .education-note { margin-block: 1.6rem .75rem; padding-block: 1.1rem; border-block: 1px solid var(--line); }
+  .education-note .eyebrow { color: var(--muted); }
+  .education-note h3 { font-size: 1.125rem; margin-block: .4rem; }
+  .education-note p { font-size: .875rem; }
+
+  .index-page { padding-block: 3rem 5rem; }
+  .page-intro h1 { font-size: clamp(2.25rem, 1.65rem + 2.7vw, 4rem); letter-spacing: -.045em; }
+  .project-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .3rem 1rem; margin-block-start: 1.4rem; padding-block: .7rem; }
   .filter-buttons { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
   .filter-buttons button { background: transparent; border: 0; border-block-end: 2px solid transparent; padding: .5rem .15rem; min-block-size: 2.75rem; font-size: .875rem; color: var(--muted); }
   .filter-buttons button[aria-pressed='true'] { color: var(--ink); border-block-end-color: currentColor; font-weight: 600; }
-  .result-count { font-size: .75rem; color: var(--muted); white-space: nowrap; }
-  .catalogue-row { border-block-end: 1px solid var(--line); }
-  .catalogue-link { display: grid; grid-template-columns: 3rem minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 1.5rem; align-items: start; padding-block: 2rem; transition: background .2s; }
-  .catalogue-link:hover { background: var(--soft); }
-  .catalogue-number { font-size: .75rem; color: var(--muted); padding-block-start: .3rem; }
-  .catalogue-main h2 { font-size: clamp(1.25rem, 1rem + .8vw, 1.75rem); letter-spacing: -.035em; }
-  .catalogue-main p { margin-block-start: .6rem; font-size: .875rem; color: var(--muted); }
-  .catalogue-meta { font-size: .75rem; color: var(--muted); padding-block-start: .3rem; }
-  .catalogue-meta p + p { margin-block-start: .6rem; }
-  .catalogue-end { display: flex; flex-direction: column; align-items: end; gap: 1rem; font-size: .75rem; white-space: nowrap; }
+  .result-count { font-size: .8125rem; color: var(--muted); white-space: nowrap; }
 
-  /* Case studies distinguish recorded outcomes from explanatory diagrams. */
-  .case-page { padding-block: 2.5rem 5rem; }
-  .case-header { padding-block: 2rem 3rem; }
-  .case-eyebrow { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .75rem; }
-  .case-header h1 { max-inline-size: 19ch; margin-block: 1.75rem 1rem; font-size: clamp(2.5rem, 1.8rem + 2.5vw, 4.75rem); letter-spacing: -.05em; }
-  .case-subtitle { max-inline-size: 50ch; font-size: clamp(1.125rem, 1rem + .5vw, 1.5rem); line-height: 1.5; color: var(--muted); }
-  .case-facts { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-block-start: 3rem; padding-block-start: 1.5rem; border-block-start: 1px solid var(--line); }
-  .case-facts > div > span { font-size: .6875rem; color: var(--muted); letter-spacing: .04em; }
-  .case-facts p { font-size: .8125rem; margin-block-start: .6rem; }
-  .case-figure { margin-block-end: 4rem; }
-  .case-figure .project-art { aspect-ratio: 2 / 1; }
-  .case-figure figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-block-start: .75rem; color: var(--muted); font-size: .6875rem; }
-  .case-figure figcaption > span:last-child { white-space: nowrap; }
-  .case-question { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; padding-block: 1rem 3rem; }
-  .case-question > .eyebrow { color: var(--muted); padding-block-start: .3rem; }
-  .case-question h2 { font-size: clamp(1.375rem, 1rem + 1vw, 2rem); line-height: 1.65; font-weight: 500; max-inline-size: 40ch; }
-  .case-body { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; border-block-start: 1px solid var(--line); padding-block-start: 3rem; }
+  .case-page { padding-block: 1.75rem 4rem; }
+  .case-header { padding-block: 1rem 1.75rem; }
+  .case-meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; color: var(--muted); font-size: .8125rem; }
+  .case-header h1 { max-inline-size: 64rem; margin-block: .8rem .85rem; font-size: clamp(2.15rem, 1.6rem + 2.45vw, 3.75rem); letter-spacing: -.045em; }
+  .case-summary { max-inline-size: 66ch; font-size: clamp(1rem, .9rem + .45vw, 1.25rem); color: var(--muted); text-wrap: pretty; }
+  .case-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 2rem; margin: 1.75rem 0 0; }
+  .case-facts dt { font-size: .75rem; color: var(--muted); }
+  .case-facts dd { margin: .3rem 0 0; font-size: .875rem; line-height: 1.5; }
+  .case-question, .case-outcome { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1rem 3rem; }
+  .case-question { padding-block: 1.25rem 1.65rem; border-block-start: 1px solid var(--line); }
+  .case-question h2, .contribution-panel h2, .case-outcome h2 { font-size: 1rem; line-height: 1.5; }
+  .case-question p { max-inline-size: 58ch; font-size: clamp(1rem, .88rem + .6vw, 1.3rem); line-height: 1.65; text-wrap: pretty; }
+  .case-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 3rem; border-block-start: 1px solid var(--line); padding-block-start: 1.85rem; }
   .contribution-panel { max-inline-size: 24rem; }
-  .contribution-panel > .eyebrow { color: var(--muted); }
-  .contribution-panel ol { list-style: none; padding: 0; margin-block: 1.5rem 2rem; }
-  .contribution-panel li { display: grid; grid-template-columns: 1.5rem 1fr; gap: .5rem; margin-block-end: 1.5rem; }
-  .contribution-panel li > span { font-size: .6875rem; color: var(--muted); padding-block-start: .1rem; }
-  .contribution-panel li p { font-size: .8125rem; line-height: 1.85; }
-  .prose { max-inline-size: 62ch; min-inline-size: 0; }
-  .prose h2 { margin-block: 2.5rem 1rem; font-size: 1.375rem; line-height: 1.5; letter-spacing: -.025em; scroll-margin-block-start: 3rem; }
+  .contribution-panel ul { margin-block-start: .8rem; padding-inline-start: 1.1rem; }
+  .contribution-panel li { font-size: .875rem; line-height: 1.75; }
+  .contribution-panel li + li { margin-block-start: .65rem; }
+  .prose { max-inline-size: 67ch; min-inline-size: 0; }
+  .prose h2 { margin-block: 2rem .8rem; font-size: 1.375rem; line-height: 1.5; letter-spacing: -.025em; scroll-margin-block-start: 3rem; }
   .prose h2:first-child { margin-block-start: 0; }
-  .prose p { font-size: 1rem; line-height: 1.95; margin-block-end: 1.25rem; color: #474e47; }
+  .prose p { line-height: 1.85; margin-block-end: 1rem; color: #474e47; }
   .prose a { text-decoration: underline; overflow-wrap: anywhere; }
-  .case-outcome { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-block-start: 3rem; padding: 2.5rem; background: var(--soft); }
-  .case-outcome > .eyebrow { color: var(--muted); }
-  .case-outcome p { font-size: 1rem; line-height: 1.9; max-inline-size: 62ch; }
-  .next-project { display: flex; justify-content: space-between; align-items: center; gap: 2rem; border-block: 1px solid var(--line); margin-block-start: 4rem; padding-block: 2rem; }
+  .case-screenshot { margin-block: 1.25rem 1.75rem; }
+  .case-screenshot img { inline-size: min(100%, 18rem); block-size: auto; border: 1px solid var(--line); }
+  .case-screenshot figcaption { margin-block-start: .55rem; color: var(--muted); font-size: .8125rem; }
+  .case-outcome { margin-block-start: 2rem; padding: 1.65rem 2rem; background: var(--soft); }
+  .case-outcome p { max-inline-size: 67ch; }
+  .case-outcome .text-link { margin-block-start: .4rem; }
+  .next-project { display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-block: 1px solid var(--line); margin-block-start: 2.75rem; padding-block: 1.35rem; }
   .next-project .eyebrow { color: var(--muted); }
-  .next-project h2 { font-size: clamp(1.5rem, 1.1rem + 1vw, 2.25rem); margin-block-start: .6rem; letter-spacing: -.035em; }
+  .next-project h2 { font-size: clamp(1.2rem, 1rem + .8vw, 1.7rem); margin-block-start: .4rem; letter-spacing: -.025em; }
   .next-project > svg { flex-shrink: 0; }
-  .next-project:hover { border-color: var(--ink); }
-
-  .project-art { inline-size: 100%; block-size: 100%; aspect-ratio: 8 / 5.2; overflow: hidden; container-type: inline-size; }
-  .project-art > svg { inline-size: 100%; block-size: 100%; object-fit: cover; }
-  .project-art svg text { font-family: var(--sans); }
-  .art-super-image-border { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 1.5rem; padding: 2.5rem 3rem; background: #e6e8e1; }
-  .app-cover-copy { align-self: center; }
-  .app-cover-copy .app-wordmark { font-size: 1.5rem; font-size: clamp(1.5rem, 5.8cqi, 3rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.04; }
-  .app-cover-copy .app-tech { font-size: .625rem; font-size: clamp(.5rem, 1.6cqi, .75rem); margin-block-start: 1.4rem; line-height: 1.8; color: #525c50; }
-  .app-screen { justify-self: center; inline-size: min(100%, 9rem); inline-size: min(100%, 25cqi); aspect-ratio: 528 / 1147; border: .3rem solid #262b27; border-radius: 1.25rem; background: #f4f4f6; overflow: hidden; box-shadow: .7rem 1.5rem 2rem #2831251c; }
-  .app-screen img { inline-size: 100%; block-size: auto; }
-  .case-figure .art-super-image-border { padding: 3rem 10%; }
-  .case-figure .app-screen { inline-size: 13.5rem; }
+  .next-project:hover h2 { text-decoration: underline; }
 
   /* Résumé uses the same content for the web and the one-page A4 export. */
   .resume-wrapper { max-inline-size: 68rem; padding-block: 2.5rem 5rem; }
@@ -237,7 +175,6 @@
   .resume-entry > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
   .resume-entry h3 { font-size: .9375rem; line-height: 1.5; }
   .resume-entry h3 a:hover { text-decoration: underline; }
-  .resume-project-subtitle { display: inline; font-size: .8125rem; font-weight: 400; }
   .resume-entry > div > span { font-size: .75rem; white-space: nowrap; color: var(--muted); }
   .resume-entry p { font-size: .8125rem; line-height: 1.8; margin-block-start: .4rem; }
   .resume-entry .resume-role { font-size: .6875rem; color: var(--muted); }
@@ -262,48 +199,19 @@
   .not-found h1 { font-size: clamp(3rem, 2rem + 4vw, 6rem); margin-block: 2rem; letter-spacing: -.05em; }
   .not-found h1 em { font-style: normal; color: var(--muted); }
   .not-found p { color: var(--muted); }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-block-start: 2rem; }
 }
 
 @layer responsive {
   @media (max-width: 64rem) {
-    .hero-copy { gap: 3rem; }
-    .hero h1 { font-size: clamp(4.25rem, 3rem + 3vw, 6.25rem); }
-    .hero h1.name-en { font-size: clamp(4rem, 3rem + 3vw, 6rem); }
-    .hero-discipline { font-size: 1.5rem; }
-    .art-super-image-border { padding: 1.5rem; }
-    .about-section { gap: 3rem; grid-template-columns: 1fr 1.5fr; }
-    .skill-row { grid-template-columns: 2rem 1fr 1.5fr; }
     .resume-sheet { padding: 2.5rem; }
   }
   @media (max-width: 48rem) {
-    .hero { padding-block-start: 2rem; }
-    .hero-topline > span:last-child { display: none; }
-    .hero-copy { grid-template-columns: 1fr; gap: 2.75rem; padding-block: 2.75rem 2.5rem; }
-    .hero h1 { font-size: clamp(4rem, 2.75rem + 5vw, 6.5rem); }
-    .hero h1.name-en { font-size: clamp(4rem, 2.75rem + 5vw, 6.5rem); }
-    .hero h1.name-en br { display: none; }
-    .hero h1.name-en { max-inline-size: 10ch; }
-    .hero-other-name { margin-block-start: 1rem; font-size: 1.125rem; }
-    .hero-description { margin-block: 1.25rem .5rem; max-inline-size: 55ch; }
-    .hero-discipline > span { display: inline; }
-    .hero-discipline > span + span::before { content: ' / '; color: var(--muted); }
+    .hero-copy { grid-template-columns: 1fr; gap: 1.45rem; }
     .hero-profile { max-inline-size: 38rem; }
-    .hero-bottom { padding-block: .75rem; }
-    .work-section { padding-block: 2.5rem 3.5rem; }
-    .work-grid { gap: 2.75rem 1.25rem; }
-    .about-section { gap: 2rem; padding-block: 3rem; }
+    .hero-discipline { text-wrap: pretty; }
+    .about-section { gap: 2rem; padding-block: 2.75rem 3rem; }
     .about-lead { font-size: 1rem; }
-    .skill-row { grid-template-columns: 2rem 1fr; gap: .5rem 1rem; }
-    .skill-row p { grid-column: 2; }
-    .practice-section { padding-block-end: 4rem; }
-    .catalogue-link { grid-template-columns: 2rem 1fr auto; gap: 1rem; }
-    .catalogue-meta { grid-column: 2; grid-row: 2; }
-    .catalogue-meta p { display: inline; }
-    .catalogue-meta p + p { margin-inline-start: .5rem; }
-    .catalogue-end { grid-column: 3; grid-row: 1 / 3; }
-    .case-question, .case-body { grid-template-columns: 1fr 2fr; gap: 2rem; }
-    .case-outcome { padding: 1.5rem; gap: 2rem; }
+    .case-question, .case-body, .case-outcome { column-gap: 1.75rem; }
     .resume-sheet { padding: 2rem; }
     .resume-heading { align-items: start; flex-direction: column; gap: 1rem; }
     .resume-contact { align-items: start; }
@@ -313,67 +221,29 @@
   }
   @media (max-width: 37.5rem) {
     .header-inner { min-block-size: 4.75rem; gap: .8rem; }
-    .hero-copy { padding-block: 2.25rem 2rem; gap: 2rem; }
-    .hero h1 { font-size: clamp(4rem, 3rem + 4vw, 5.5rem); letter-spacing: -.06em; }
-    .hero h1.name-en { font-size: clamp(3.5rem, 2.25rem + 5vw, 5rem); }
-    .hero h1.name-en br { display: block; }
-    .hero-discipline { font-size: 1.25rem; }
-    .hero-description { font-size: .9375rem; line-height: 1.85; }
-    .hero-work-link { gap: clamp(.5rem, 2vw, 1.5rem); }
-    .hero-bottom .text-link { font-size: .75rem; gap: .5rem; }
-    .section-heading { align-items: start; gap: 1rem; margin-block-end: 1.5rem; }
-    .section-heading h2 { font-size: 1.5rem; }
-    .section-heading > .eyebrow { max-inline-size: 9rem; font-size: .625rem; }
-    .work-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .work-title { font-size: 1.5rem; }
-    .work-meta { flex-direction: row; }
-    .work-summary { font-size: .8125rem; }
-    .all-work-link { margin-block-start: 2rem; }
-    .about-section { grid-template-columns: 1fr; gap: 1.5rem; }
-    .about-heading h2 { margin-block-start: .5rem; }
-    .about-copy { max-inline-size: 38rem; }
-    .education-note { margin-block: 1.75rem 1.5rem; }
-    .skill-row { padding-block: 1.25rem; }
-    .skill-row h3 { font-size: 1rem; }
-    .skill-row p { font-size: .75rem; }
-    .index-page { padding-block: 2.75rem 4rem; }
-    .page-intro h1 { margin-block: 1rem; font-size: clamp(2.75rem, 2rem + 3vw, 4rem); }
-    .page-intro p { font-size: .875rem; }
-    .project-toolbar { align-items: start; flex-direction: column; gap: .5rem; margin-block-start: 2rem; }
-    .filter-buttons { gap: .25rem 1rem; }
-    .filter-buttons button { font-size: .75rem; }
-    .catalogue-link { padding-block: 1.5rem; gap: .75rem; grid-template-columns: 1.5rem minmax(0, 1fr) auto; }
-    .catalogue-main h2 { font-size: 1.25rem; }
-    .catalogue-main p { font-size: .8125rem; }
-    .catalogue-meta { font-size: .625rem; }
-    .catalogue-end { font-size: .625rem; }
-    .case-page { padding-block-start: 1.5rem; }
-    .case-header { padding-block: 1.5rem 2rem; }
-    .case-header h1 { font-size: clamp(2.25rem, 1.75rem + 2vw, 3.25rem); margin-block-start: 1.25rem; }
-    .case-eyebrow { font-size: .625rem; }
-    .case-facts { grid-template-columns: 1fr; gap: 1.25rem; margin-block-start: 2rem; }
-    .case-facts > div { display: grid; grid-template-columns: 5rem 1fr; align-items: baseline; gap: .75rem; }
-    .case-facts p { margin-block-start: 0; }
-    .case-figure { margin-block-end: 2.5rem; }
-    .case-figure .project-art { aspect-ratio: 8 / 6; }
-    .case-figure figcaption { font-size: .625rem; }
-    .case-question, .case-body, .case-outcome { grid-template-columns: 1fr; gap: 1.25rem; }
-    .case-question { padding-block-end: 2rem; }
-    .case-body { padding-block-start: 2rem; }
-    .contribution-panel { max-inline-size: none; }
-    .contribution-panel li { margin-block-end: 1rem; }
-    .contribution-panel ol { margin-block: 1rem 1.5rem; }
-    .contribution-panel { border-block-end: 1px solid var(--line); padding-block-end: 2rem; margin-block-end: 1rem; }
+    .hero { padding-block: 2.5rem 2rem; }
+    .hero-other-name { font-size: 1rem; }
+    .hero-description { font-size: .9375rem; }
+    .work-section { padding-block-end: 2.5rem; }
+    .project-link { grid-template-columns: minmax(0, 1fr); padding-block: 1rem; }
+    .project-summary { font-size: .875rem; }
+    .project-meta { justify-content: space-between; }
+    .about-section { grid-template-columns: 1fr; gap: 1.2rem; }
+    .index-page { padding-block: 2.5rem 3.5rem; }
+    .project-toolbar { margin-block-start: 1rem; }
+    .filter-buttons { gap: .15rem .8rem; }
+    .filter-buttons button { font-size: .8125rem; }
+    .case-page { padding-block-start: 1rem; }
+    .case-header h1 { font-size: clamp(1.75rem, 1.35rem + 2vw, 2.65rem); }
+    .case-facts { grid-template-columns: 1fr; gap: .65rem; margin-block-start: 1.3rem; }
+    .case-facts > div { display: grid; grid-template-columns: 5.65rem minmax(0, 1fr); align-items: baseline; gap: .6rem; }
+    .case-facts dd { margin-block-start: 0; }
+    .case-question, .case-body, .case-outcome { grid-template-columns: 1fr; gap: .65rem; }
+    .contribution-panel { max-inline-size: none; border-block-end: 1px solid var(--line); padding-block-end: 1.3rem; margin-block-end: .7rem; }
     .prose h2 { font-size: 1.25rem; }
     .prose p { font-size: .9375rem; }
-    .case-outcome { margin-block-start: 1.5rem; padding: 1.25rem; }
-    .case-outcome p { font-size: .875rem; }
-    .next-project { margin-block-start: 2.5rem; }
-    .next-project h2 { font-size: 1.5rem; }
-    .art-super-image-border { padding: 1.6rem 1.8rem; }
-    .app-screen { border-width: .2rem; border-radius: .75rem; }
-    .case-figure .art-super-image-border { padding: 1.5rem; }
-    .case-figure .app-screen { inline-size: 8.75rem; }
+    .case-outcome { padding: 1.15rem; }
+    .next-project { margin-block-start: 2rem; }
     .resume-wrapper { padding-block-start: 1.5rem; }
     .resume-toolbar .button { font-size: .75rem; padding: .65rem .75rem; }
     .resume-sheet { padding: 1.25rem; }
@@ -383,7 +253,6 @@
     .resume-entry > div { flex-direction: column; gap: .25rem; }
     .resume-entry h3 { font-size: .875rem; }
     .resume-entry p { font-size: .75rem; }
-    .resume-project-subtitle { display: block; font-size: .75rem; margin-block-start: .25rem; }
     .resume-section { margin-block-start: 1.5rem; }
     .resume-bottom { flex-direction: column; gap: .5rem; }
     .site-footer { padding-block: 2rem 1rem; }
@@ -411,7 +280,6 @@
     .resume-section h2 { font-size: .8rem; padding-block-end: .25rem; margin-block-end: .45rem; }
     .resume-entry > div { display: flex; flex-direction: row; align-items: baseline; gap: 1rem; }
     .resume-entry h3 { font-size: .73rem; line-height: 1.45; }
-    .resume-project-subtitle { display: inline; font-size: .625rem; }
     .resume-entry > div > span { font-size: .6rem; }
     .resume-entry p { font-size: .69rem; line-height: 1.6; margin-block-start: .2rem; }
     .resume-entry .resume-role { font-size: .6rem; }

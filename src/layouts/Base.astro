@@ -53,7 +53,7 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Pei
         let count = 0;
         document.querySelectorAll<HTMLElement>('[data-project-category]').forEach(card => { const show = filter === 'all' || card.dataset.projectCategory === filter; card.hidden = !show; if (show) count++; });
         const countLabel = document.querySelector<HTMLElement>('[data-project-count]');
-        if (countLabel) countLabel.textContent = String(count).padStart(2, '0');
+        if (countLabel) countLabel.textContent = String(count);
       }));
     </script>
   </body>

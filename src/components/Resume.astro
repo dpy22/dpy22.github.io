@@ -23,15 +23,15 @@ const further = projects.filter(project => !project.featured);
     <section class="resume-section">
       <h2>{text(locale, '代表项目', 'Selected projects')}</h2>
       {selected.map(project => <div class="resume-entry resume-project">
-        <div><h3><a href={`${profile.site}${route(locale, `projects/${project.slug}`)}`}>{project[locale].title}</a><span class="resume-project-subtitle"> · {project[locale].subtitle}</span></h3><span>{project.year}</span></div>
+        <div><h3><a href={`${profile.site}${route(locale, `projects/${project.slug}`)}`}>{project[locale].title}</a></h3><span>{project.year}</span></div>
         <p class="resume-role">{project[locale].role} · {project.tags.join(' / ')}</p>
-        <p>{project[locale].contributions[0]} {project[locale].contributions[1]}</p>
+        <p>{project[locale].summary}</p>
       </div>)}
     </section>
     <section class="resume-section resume-web-only">
       <h2>{text(locale, '更多作品', 'Further projects')}</h2>
       {further.map(project => <div class="resume-entry resume-project">
-        <div><h3><a href={route(locale, `projects/${project.slug}`)}>{project[locale].title}</a><span class="resume-project-subtitle"> · {project[locale].subtitle}</span></h3><span>{project.year}</span></div>
+        <div><h3><a href={route(locale, `projects/${project.slug}`)}>{project[locale].title}</a></h3><span>{project.year}</span></div>
         <p class="resume-role">{project[locale].role} · {project[locale].status}</p>
         <p>{project[locale].summary}</p>
       </div>)}

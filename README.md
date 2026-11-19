@@ -1,6 +1,6 @@
 # Peiyao Duan / 段培耀
 
-A bilingual job-search portfolio focused on AI applications, scientific machine learning, and software engineering. Built with Astro, TypeScript, and CSS. Published at [dpy22.github.io](https://dpy22.github.io/).
+A bilingual research and engineering portfolio focused on computing workloads and cooling in AI data centres. Built with Astro, TypeScript, and CSS. Published at [dpy22.github.io](https://dpy22.github.io/).
 
 ## Local development
 
@@ -26,14 +26,13 @@ pnpm preview
 - src/data/profile.json: shared name, introduction, education, contact details, skills, and awards. 姓名、个人介绍、教育和联系方式等共用资料。
 - src/data/projects.json: identifiers, bilingual summaries, contributions, categories, and reviewed public links. 项目索引与双语摘要。
 - src/content/cases/<slug>.<locale>.md: longer project stories, one zh and one en file per project. 项目长文。
-- src/components/ProjectArt.astro: original technical diagrams and the native app's UI snapshot. 项目图解与应用界面快照。
-- public/images/: compressed UI snapshots from the public super-image-border repository. Sources are documented in public/licenses/PROJECT-ASSETS.md.
+- public/images/: native editor snapshots embedded in the bilingual Photo Frame Studio case. Sources are documented in public/licenses/PROJECT-ASSETS.md.
 
 Chinese lives at / and English at /en/. Language links retain the current project and section. Update both languages together; pnpm check rejects missing fields, unknown references, and incomplete case pairs.
 
 The resume pages and generated one-page A4 PDFs use the same profile and project data. PDFs and the 1200 x 630 share image are generated during pnpm build; they are available in the production preview rather than the development server.
 
-Project order prioritises AI assistants, neural surrogate modelling, and AI decision integration. The four featured projects also appear in the concise PDF; engineering benchmarks and supporting applications remain in the full catalogue. Shared positioning, page metadata, and the social preview all use the profile's focus fields.
+The homepage and both one-page résumés share their four featured projects and order. The catalogue lists all seven projects. The site title, footer and independent text share image use the bilingual focus in src/data/profile.json.
 
 Use only material suitable for public distribution. Original resumes, private repository URLs, raw laboratory data, device addresses, credentials, and internal parameters do not belong in this repository. Contributions and work in progress should remain accurately described.
 

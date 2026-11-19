@@ -11,6 +11,8 @@ const output = 'output/qa';
 await mkdir(output, { recursive: true });
 const routes = ['/', '/projects/', '/resume/', ...projects.map(p => `/projects/${p.slug}/`)];
 const allRoutes = [...routes, ...routes.map(route => `/en${route}`)];
+const previewRoutes = ['/', '/projects/', '/resume/', '/projects/liquid-cooling-benchmark/', '/projects/thermal-lab/', '/projects/super-image-border/'];
+const selected = projects.filter(project => project.featured);
 const report = { created: new Date().toISOString(), routes: allRoutes.length, layout: [], accessibility: [], interactions: [], errors: [], scriptGzipBytes: 0 };
 const site = await createStaticServer();
 let browser;
@@ -39,7 +41,7 @@ try {
         });
         report.accessibility.push({ route, violations: result });
       }
-      const representative = ['/', '/en/', '/projects/', '/en/projects/', '/projects/thermal-lab/', '/en/projects/thermal-lab/'].includes(route);
+      const representative = previewRoutes.includes(route.replace(/^\/en\//, '/'));
       if (representative && [1440,390].includes(width)) {
         for (const image of await page.locator('main img').all()) {
           await image.scrollIntoViewIfNeeded();
@@ -58,7 +60,7 @@ try {
     assert.equal(await cards.count(), projects.length);
     await page.locator('[data-filter=research]').click();
     assert.equal(await cards.count(), projects.filter(p => p.category === 'research').length);
-    assert.equal(await page.locator('[data-project-count]').textContent(), '04');
+    assert.equal(await page.locator('[data-project-count]').textContent(), String(await cards.count()));
     await page.locator('[data-filter=software]').click();
     assert.equal(await cards.count(), projects.filter(p => p.category === 'software').length);
     await page.locator('[data-filter=all]').click();
@@ -96,6 +98,25 @@ try {
   assert.notEqual(focus.outline, 'none');
   assert.equal(focus.animation, 'none');
   report.interactions.push('Keyboard skip link has visible focus; reduced motion disables entry animation');
+  await page.setViewportSize({ width: 1280, height: 720 });
+  for (const prefix of ['', '/en']) {
+    await page.goto(`${site.url}${prefix}/`);
+    await page.evaluate(() => document.fonts.ready);
+    const firstScreen = await page.locator('.hero-actions').evaluate(actions => actions.getBoundingClientRect().bottom <= window.innerHeight);
+    assert.ok(firstScreen, `Homepage actions are below the fold: ${prefix || '/'}`);
+    const featured = await page.locator('#work .project-link').evaluateAll(links => links.map(link => link.getAttribute('href')));
+    assert.deepEqual(featured, selected.map(project => `${prefix}/projects/${project.slug}/`));
+    assert.equal(await page.locator('#work img, #work figure').count(), 0);
+
+    await page.goto(`${site.url}${prefix}/projects/super-image-border/`);
+    const screenshot = page.locator('.prose figure img');
+    assert.equal(await screenshot.count(), 1);
+    assert.ok(await screenshot.getAttribute('alt'));
+    await screenshot.scrollIntoViewIfNeeded();
+    await screenshot.evaluate(image => image.decode());
+  }
+  report.interactions.push('Homepage actions and featured order on desktop; inline app screenshots in both languages');
+
   const zoomContext = await browser.newContext({ viewport: { width: 720, height: 500 }, deviceScaleFactor: 2, reducedMotion: 'reduce' });
   const zoomPage = await zoomContext.newPage();
   for (const route of ['/', '/en/', '/projects/thermal-lab/', '/en/resume/']) {

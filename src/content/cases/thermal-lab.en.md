@@ -16,4 +16,4 @@ This work connects AI integration with a complete software system: assistant int
 
 ## Validation and current progress
 
-Development continues. Interface integration, acquisition, model accuracy, and physical control each have separate acceptance boundaries. The illustration presents system structure without using raw laboratory data.
+Development continues. Interface integration, acquisition, model accuracy, and physical control each have separate acceptance boundaries.

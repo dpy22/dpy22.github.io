@@ -6,8 +6,8 @@ const { locale } = Astro.props;
 ---
 <footer id="contact" class="site-footer">
   <div class="shell">
-    <div class="contact-top"><h2>{text(locale, '联系我', 'Get in touch')}</h2><span class="contact-note">{text(locale, 'AI 应用、机器学习与软件研发机会，欢迎邮件联系。', 'For opportunities in AI, machine learning, and software development.')}</span></div>
+    <div class="contact-top"><h2>{text(locale, '联系我', 'Get in touch')}</h2><span class="contact-note">{text(locale, '欢迎交流数据中心热管理、工程仿真和 AI 应用。', 'Get in touch about data centre cooling, engineering simulation and applied AI.')}</span></div>
     <a class="contact-email" href={`mailto:${profile.email}`}><span>{profile.email}</span><Icon name="up-right" size={46}/></a>
-    <div class="footer-bottom"><a class="footer-name" href={route(locale)}>{profile.name[locale]}<span>© 2026</span></a><span class="footer-location">{profile.focusLabel}</span><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub<Icon name="up-right" size={15}/></a></div>
+    <div class="footer-bottom"><a class="footer-name" href={route(locale)}>{profile.name[locale]}<span>© 2026</span></a><span class="footer-location">{profile.focus[locale]}</span><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">GitHub<Icon name="up-right" size={15}/></a></div>
   </div>
 </footer>

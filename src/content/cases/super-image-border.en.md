@@ -8,6 +8,11 @@ Photo Frame Studio 2.0 is a native Android application built with Kotlin and Jet
 
 Eight template families contain thirty-two original designs. EXIF fields can be read automatically, overridden, or hidden. Text, logos, and watermarks are independent layers. These features share a scene description rather than maintaining separate copies of an image.
 
+<figure class="case-screenshot">
+  <img src="/images/photo-frame-en.webp" width="528" height="1147" alt="Photo Frame Studio editor showing a photo preview, templates and editing controls" loading="lazy" decoding="async">
+  <figcaption>Native Android editor snapshot with a sample image from the public repository.</figcaption>
+</figure>
+
 ## One scene, two rendering contexts
 
 A mobile preview needs to stay lightweight; export needs to preserve full resolution. A shared scene model describes the canvas, layers, and metadata. Preview uses reduced working images, while SDR export combines region decoding and strip encoding to manage memory.
@@ -18,4 +23,4 @@ The export pipeline provides JPEG, PNG, and ICC profiles matched to the actual o
 
 Room manages drafts, presets, and export tasks, with DataStore for settings. Editing supports undo and redo. Serial batch tasks can be paused, resumed, and retried. Original files are read-only; GPS and device serial numbers are removed from output by default.
 
-The image on this page is a Compose UI snapshot from the public repository, using a sample image. The native 2.0 source is available for inspection. A retained legacy web tool is a separate version and is not a demo of the native editor. Test and device acceptance details are documented in the repository.
+The public repository includes the native 2.0 source, application tests and device acceptance records.
