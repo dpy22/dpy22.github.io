@@ -2,18 +2,18 @@
 project: thermal-lab
 locale: en
 ---
-## From isolated readings to a system view
+## Bringing AI assistance into experimental work
 
-In liquid-cooling experiments, device readings, historical curves, and experimental records can live in separate places. The platform brings them into one workspace: locate a signal through the device catalogue, understand the current state in monitoring, then take historical data into analysis.
+Thermal Lab connects text and voice AI assistance to equipment data, monitoring, and queries in liquid-cooled server experiments. My work spans assistant integration, back-end data services, and the interface, relating natural-language interaction to information from the experimental system.
 
-The 3D scene acts as a spatial index, relating readings to physical components. It complements the logical topology, trends, and equipment details.
+Assistant interactions include readable evidence and operation confirmation. For operations, the interface presents explicit targets and distinguishes requests, device acknowledgements, and observed state, helping users understand execution progress.
 
-## Designing around experimental work
+## Connecting data, model interaction, and the interface
 
-The platform organises multi-channel monitoring, historical queries, research exports, and experimental records. Text and voice assistance provide another way to ask questions. Operations use understandable targets and confirmation, while requests, acknowledgements, and observed states remain distinct.
+The platform brings together device and signal catalogues, multi-channel monitoring, historical queries, research exports, and experimental records. A 3D scene provides a spatial index linking values and trends to equipment; text and voice assistance provide another way to query the system.
 
-The work spans the back-end data pipeline and front-end information design. I focus on where a reading comes from, what a user is seeing, and whether the next action is clear.
+This work connects AI integration with a complete software system: assistant interactions, data provenance, current state, and operation results all need to remain understandable.
 
-## An evolving engineering practice
+## Validation and current progress
 
 Development continues. Interface integration, acquisition, model accuracy, and physical control each have separate acceptance boundaries. The illustration presents system structure without using raw laboratory data.

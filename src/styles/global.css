@@ -144,7 +144,6 @@
   .education-note h3 { font-size: 1.125rem; margin-block: .6rem .4rem; }
   .education-note p { font-size: .875rem; }
   .education-note > span:last-child { font-size: .75rem; color: var(--muted); }
-  .personal-note { font-size: .8125rem; color: var(--muted); margin-block-end: 1rem; }
   .practice-section { padding-block: 1rem 6rem; }
   .skill-list { border-block-start: 1px solid var(--line); }
   .skill-row { display: grid; grid-template-columns: 3rem 1fr 1.8fr; align-items: baseline; gap: 1rem; padding-block: 1.6rem; border-block-end: 1px solid var(--line); }
@@ -245,7 +244,6 @@
   .resume-skill { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; font-size: .75rem; margin-block: .6rem; }
   .resume-skill strong { font-weight: 500; }
   .resume-awards ul { padding-inline-start: 1.2rem; font-size: .75rem; line-height: 2; }
-  .resume-personal { font-size: .75rem; color: var(--muted); margin-block-start: 1.5rem; }
   .resume-bottom { display: flex; justify-content: space-between; gap: 1rem; margin-block-start: 2rem; padding-block-start: 1rem; border-block-start: 1px solid var(--line); font-size: .6875rem; color: var(--muted); }
 
   .site-footer { background: #e9ebe3; padding-block: 3rem 1.5rem; }
@@ -420,7 +418,6 @@
     .resume-entry + .resume-entry { margin-block-start: .55rem; }
     .resume-skill { display: grid; grid-template-columns: 8.8rem 1fr; gap: .5rem; font-size: .625rem; line-height: 1.6; margin-block: .2rem; }
     .resume-awards ul { font-size: .625rem; line-height: 1.75; padding-inline-start: 1rem; }
-    .resume-personal { font-size: .6rem; margin-block-start: .7rem; }
     .resume-bottom { display: flex; flex-direction: row; justify-content: space-between; gap: 1rem; font-size: .55rem; margin-block-start: .6rem; padding-block-start: .5rem; }
     a { text-decoration: none; }
   }

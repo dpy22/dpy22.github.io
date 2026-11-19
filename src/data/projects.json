@@ -6,105 +6,60 @@
     "year": "2026",
     "featured": true,
     "tags": [
+      "AI assistants",
       "Python",
       "React",
-      "Digital twin",
-      "AI"
+      "Digital twin"
     ],
     "zh": {
       "title": "Thermal Lab",
-      "subtitle": "液冷服务器智能热管理平台",
-      "discipline": "系统工程 / 数字孪生",
-      "summary": "连接实验设备、实时数据与三维场景，让液冷系统的运行状态更容易理解。",
-      "role": "平台开发与系统集成",
+      "subtitle": "面向液冷实验的 AI 助手与热管理平台",
+      "discipline": "AI 应用 / 工程系统集成",
+      "summary": "将文字与语音 AI 助手接入实验数据、运行监测与三维场景，支持有据可查的查询和交互。",
+      "role": "AI 助手与平台集成开发",
       "status": "持续开发中的研究平台",
       "question": "如何把设备采集、运行监测、实验数据和辅助问答组织为一个可理解、可追溯的工作环境？",
       "contributions": [
-        "整合设备与测点、实时监测、历史查询和研究数据导出。",
-        "将三维场景与设备状态结合，组织多通道信息与交互。",
-        "接入文字及语音助手，配合操作确认和可读证据。"
+        "接入文字与语音 AI 助手，结合可读证据与操作确认，支持实验查询和交互。",
+        "整合设备测点、实时监测、历史查询与三维状态，连接数据服务和前端界面。",
+        "区分助手请求、设备回执与实际状态，明确辅助交互与实机控制的边界。"
       ],
-      "result": "整合采集、监测和三维展示等功能，平台持续迭代；模型精度与实机控制效果仍需单独验证。",
+      "result": "连接实验数据与文字、语音助手，形成可追溯的监测与查询环境；设备控制效果与模型精度仍在分别验证。",
       "caption": "平台结构示意 · 按功能重新绘制"
     },
     "en": {
       "title": "Thermal Lab",
-      "subtitle": "Intelligent thermal management for liquid-cooled servers",
-      "discipline": "Systems engineering / Digital twins",
-      "summary": "Connecting experimental hardware, live data, and a spatial view to make cooling systems easier to understand.",
-      "role": "Platform development & systems integration",
+      "subtitle": "AI assistance for liquid-cooling experiments",
+      "discipline": "AI applications / Engineering systems",
+      "summary": "Text and voice AI assistance connected to experimental data, monitoring, and a 3D scene, with evidence and operation confirmation.",
+      "role": "AI assistance & platform integration",
       "status": "Research platform · Ongoing",
       "question": "How can device acquisition, monitoring, experimental records, and assisted inquiry become one understandable, traceable workspace?",
       "contributions": [
-        "Integrated device and signal catalogues, monitoring, history, and research data export.",
-        "Connected a 3D scene with equipment state and organised multi-channel information.",
-        "Integrated text and voice assistance with operation confirmation and readable evidence."
+        "Integrated text and voice AI assistance with readable evidence and operation confirmation.",
+        "Connected device data, monitoring, history, and a 3D view across back-end services and the interface.",
+        "Separated assistant requests, device acknowledgements, and observed state in the interaction flow."
       ],
-      "result": "Integrated acquisition, monitoring, and 3D presentation in an evolving research platform. Model accuracy and physical-control performance require further validation.",
+      "result": "Connected experimental data with text and voice assistance in a traceable monitoring workspace. Physical-control performance and model accuracy remain under separate validation.",
       "caption": "Platform concept · Redrawn from its functional structure"
     }
   },
   {
-    "slug": "liquid-cooling-benchmark",
-    "number": "02",
-    "category": "research",
-    "year": "2026",
-    "featured": true,
-    "tags": [
-      "Modelica",
-      "FMU",
-      "Python",
-      "Control"
-    ],
-    "zh": {
-      "title": "Liquid Cooling Benchmark",
-      "subtitle": "可复现的数据中心液冷建模与控制实验",
-      "discipline": "物理建模 / 控制实验",
-      "summary": "从冷板到机柜与冷源，用统一的模型边界连接物理系统与外部控制方法。",
-      "role": "模型与实验工具开发",
-      "status": "研究与验证持续进行",
-      "question": "如何建立层次清晰、可验证的数据中心液冷被控对象，使不同控制方法能够在一致条件下比较？",
-      "contributions": [
-        "组织冷板、服务器、机柜、CDU 与冷源等分层 Modelica 模型。",
-        "通过 FMU 暴露控制接口，连接 Python 驱动、场景和后处理。",
-        "建立组件验证、基线矩阵与参数来源记录，保留模型适用边界。"
-      ],
-      "result": "形成从物理模型、FMU 接口到控制实验与结果整理的研究链路。当前工作属于持续验证中的研究项目。",
-      "caption": "液冷系统拓扑示意 · 非实测数据"
-    },
-    "en": {
-      "title": "Liquid Cooling Benchmark",
-      "subtitle": "Reproducible modelling and control experiments",
-      "discipline": "Physical modelling / Control",
-      "summary": "A consistent boundary between physical cooling systems and external controllers, from cold plates to racks and cooling plants.",
-      "role": "Model & experimental tooling development",
-      "status": "Research & validation · Ongoing",
-      "question": "How can a hierarchical, verifiable liquid-cooling plant support comparisons of controllers under consistent conditions?",
-      "contributions": [
-        "Organised hierarchical Modelica models for cold plates, servers, racks, CDUs, and the cooling plant.",
-        "Exposed FMU control interfaces to Python drivers, scenarios, and post-processing.",
-        "Established component checks, baseline matrices, and parameter provenance with explicit model boundaries."
-      ],
-      "result": "A research workflow connecting physical models, FMU interfaces, control experiments, and result analysis. Verification is ongoing.",
-      "caption": "Cooling-system concept · No measured data shown"
-    }
-  },
-  {
     "slug": "wind-wake",
-    "number": "03",
+    "number": "02",
     "category": "research",
     "year": "2024 — 2025",
     "featured": true,
     "tags": [
       "PyTorch",
-      "CFD",
-      "Surrogate models"
+      "CNN",
+      "Scientific ML"
     ],
     "zh": {
       "title": "Learning the Wake",
       "subtitle": "漂浮式风力机尾流与神经网络预测",
-      "discipline": "科学机器学习 / 风能",
-      "summary": "将物理解析模型与神经网络结合，探索风力机尾流场的代理预测。",
+      "discipline": "机器学习 / 物理代理模型",
+      "summary": "结合物理先验与卷积神经网络，使用 PyTorch 探索尾流代理预测和训练策略。",
       "role": "SRT 项目研究参与",
       "status": "完成阶段研究 · 2024.09—2025.08",
       "question": "如何利用已有 CFD 数据与物理先验，提高风力机尾流场预测的效率？",
@@ -119,8 +74,8 @@
     "en": {
       "title": "Learning the Wake",
       "subtitle": "Neural surrogate modelling for floating wind-turbine wakes",
-      "discipline": "Scientific ML / Wind energy",
-      "summary": "Bringing physical priors and neural networks together to explore faster predictions of turbine wake fields.",
+      "discipline": "Machine learning / Neural surrogates",
+      "summary": "Physical priors and convolutional neural networks for wake-field prediction, with training strategies explored in PyTorch.",
       "role": "Student Research Training participant",
       "status": "Research stage completed · Sep 2024–Aug 2025",
       "question": "How can CFD data and physical priors support more efficient predictions of wind-turbine wake fields?",
@@ -131,6 +86,51 @@
       ],
       "result": "The project received Third Prize in the 18th National University Energy Conservation & Emission Reduction Competition, completing a research stage in physics-informed surrogate prediction of turbine wakes.",
       "caption": "Wake-field concept · Illustrative streamlines, not simulation output"
+    }
+  },
+  {
+    "slug": "texasjev",
+    "number": "03",
+    "category": "software",
+    "year": "2026",
+    "featured": true,
+    "tags": [
+      "AI agents",
+      "TypeScript",
+      "WebSocket"
+    ],
+    "source": "https://github.com/dpy22/TexasJev",
+    "zh": {
+      "title": "TexasJev",
+      "subtitle": "AI 决策接入与多人实时应用",
+      "discipline": "AI 决策 / 全栈工程",
+      "summary": "将 Jev 决策接入六席多人应用，通过合法动作校验、超时回退与状态同步处理模型输出。",
+      "role": "AI 决策集成与全栈开发",
+      "status": "开源实验 · 多设备实测仍有待完成",
+      "question": "如何让确定性的牌局规则与不确定的 AI 决策，在多人交互中保持清晰边界？",
+      "contributions": [
+        "接入 Jev 决策，将模型输出交由规则引擎校验，并在超时或失败时使用明确的本地回退。",
+        "实现 WebSocket 状态同步、玩家视角隔离、重连与持久化，记录调用用量及估算费用。",
+        "实现合法动作、边池与结算规则，并保留规则、协议和模型调用的测试记录。"
+      ],
+      "result": "公开源码包含规则、网络及模型调用测试记录；多台物理设备连续对局验收仍待完成。",
+      "caption": "牌桌与状态流概念图 · 非运行截图"
+    },
+    "en": {
+      "title": "TexasJev",
+      "subtitle": "AI decisions in a real-time multiplayer application",
+      "discipline": "AI decisions / Full-stack engineering",
+      "summary": "Jev decisions in a six-seat application, with legal-action validation, timeout fallbacks, and synchronised state.",
+      "role": "AI decision integration & full-stack development",
+      "status": "Open-source experiment · Physical-device testing pending",
+      "question": "How can deterministic game rules and uncertain AI decisions maintain clear boundaries in a multiplayer system?",
+      "contributions": [
+        "Integrated Jev decisions with rules-engine validation and explicit local fallbacks on timeout or failure.",
+        "Implemented WebSocket state sync, isolated player views, reconnection, persistence, and model-usage accounting.",
+        "Implemented legal actions, side pots, and settlement, with rules, protocol, and model-call test records."
+      ],
+      "result": "Public source includes rules, networking, and model-call test records. Sustained testing across physical devices remains pending.",
+      "caption": "Table & state-flow concept · Not a running-application screenshot"
     }
   },
   {
@@ -180,8 +180,53 @@
     }
   },
   {
-    "slug": "flexible-power",
+    "slug": "liquid-cooling-benchmark",
     "number": "05",
+    "category": "research",
+    "year": "2026",
+    "featured": false,
+    "tags": [
+      "Modelica",
+      "FMU",
+      "Python",
+      "Control"
+    ],
+    "zh": {
+      "title": "Liquid Cooling Benchmark",
+      "subtitle": "可复现的数据中心液冷建模与控制实验",
+      "discipline": "物理建模 / 控制实验",
+      "summary": "从冷板到机柜与冷源，用统一的模型边界连接物理系统与外部控制方法。",
+      "role": "模型与实验工具开发",
+      "status": "研究与验证持续进行",
+      "question": "如何建立层次清晰、可验证的数据中心液冷被控对象，使不同控制方法能够在一致条件下比较？",
+      "contributions": [
+        "组织冷板、服务器、机柜、CDU 与冷源等分层 Modelica 模型。",
+        "通过 FMU 暴露控制接口，连接 Python 驱动、场景和后处理。",
+        "建立组件验证、基线矩阵与参数来源记录，保留模型适用边界。"
+      ],
+      "result": "形成从物理模型、FMU 接口到控制实验与结果整理的研究链路。当前工作属于持续验证中的研究项目。",
+      "caption": "液冷系统拓扑示意 · 非实测数据"
+    },
+    "en": {
+      "title": "Liquid Cooling Benchmark",
+      "subtitle": "Reproducible modelling and control experiments",
+      "discipline": "Physical modelling / Control",
+      "summary": "A consistent boundary between physical cooling systems and external controllers, from cold plates to racks and cooling plants.",
+      "role": "Model & experimental tooling development",
+      "status": "Research & validation · Ongoing",
+      "question": "How can a hierarchical, verifiable liquid-cooling plant support comparisons of controllers under consistent conditions?",
+      "contributions": [
+        "Organised hierarchical Modelica models for cold plates, servers, racks, CDUs, and the cooling plant.",
+        "Exposed FMU control interfaces to Python drivers, scenarios, and post-processing.",
+        "Established component checks, baseline matrices, and parameter provenance with explicit model boundaries."
+      ],
+      "result": "A research workflow connecting physical models, FMU interfaces, control experiments, and result analysis. Verification is ongoing.",
+      "caption": "Cooling-system concept · No measured data shown"
+    }
+  },
+  {
+    "slug": "flexible-power",
+    "number": "06",
     "category": "research",
     "year": "2023 — 2024",
     "featured": false,
@@ -225,7 +270,7 @@
   },
   {
     "slug": "flypy-typing",
-    "number": "06",
+    "number": "07",
     "category": "software",
     "year": "2022",
     "featured": false,
@@ -266,51 +311,6 @@
       ],
       "result": "A runnable course project with public source. Jointly authored by Peiyao Duan and Daining Bao.",
       "caption": "Key-hint concept · Not an application screenshot"
-    }
-  },
-  {
-    "slug": "texasjev",
-    "number": "07",
-    "category": "software",
-    "year": "2026",
-    "featured": false,
-    "tags": [
-      "TypeScript",
-      "WebSocket",
-      "AI agents"
-    ],
-    "source": "https://github.com/dpy22/TexasJev",
-    "zh": {
-      "title": "TexasJev",
-      "subtitle": "规则、联机交互与 AI 决策的实验",
-      "discipline": "全栈开发 / AI 实验",
-      "summary": "一个六席娱乐筹码牌桌，将确定性规则引擎、状态同步和 Jev 机器人连接起来。",
-      "role": "应用与规则引擎开发",
-      "status": "开源实验 · 多设备实测仍有待完成",
-      "question": "如何让确定性的牌局规则与不确定的 AI 决策，在多人交互中保持清晰边界？",
-      "contributions": [
-        "实现牌局规则、合法动作、边池与结算等确定性逻辑。",
-        "组织 WebSocket 状态同步、身份隔离、重连与服务端保存。",
-        "接入 Jev 机器人，并对模型失败提供明确的本地替代动作。"
-      ],
-      "result": "已形成原记牌工具及联机牌桌，并保留协议与测试记录。仅使用娱乐筹码；多台物理设备连续对局验收仍待完成。",
-      "caption": "牌桌与状态流概念图 · 非运行截图"
-    },
-    "en": {
-      "title": "TexasJev",
-      "subtitle": "An experiment in rules, multiplayer interaction, and AI",
-      "discipline": "Full-stack development / AI experiments",
-      "summary": "A six-seat play-chip table connecting a deterministic rules engine, synchronised state, and Jev bots.",
-      "role": "Application & rules-engine development",
-      "status": "Open-source experiment · Physical-device testing pending",
-      "question": "How can deterministic game rules and uncertain AI decisions maintain clear boundaries in a multiplayer system?",
-      "contributions": [
-        "Implemented game rules, legal actions, side pots, and settlement.",
-        "Organised WebSocket synchronisation, isolated player views, reconnection, and server persistence.",
-        "Integrated Jev bots with explicit local fallback actions when model calls fail."
-      ],
-      "result": "A recording tool and multiplayer table with protocol and test records. Play chips only; sustained testing across physical devices remains pending.",
-      "caption": "Table & state-flow concept · Not a running-application screenshot"
     }
   }
 ]

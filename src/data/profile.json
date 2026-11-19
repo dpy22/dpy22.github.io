@@ -6,24 +6,29 @@
   "email": "dpy22@foxmail.com",
   "github": "https://github.com/dpy22",
   "site": "https://dpy22.github.io",
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
+  "focus": {
+    "zh": "AI 应用 · 科学机器学习 · 软件工程",
+    "en": "AI applications · Scientific ML · Software engineering"
+  },
+  "focusLabel": "AI / SCIENTIFIC ML / SOFTWARE",
   "headline": {
     "zh": [
-      "能源工程",
-      "科学计算与软件"
+      "AI 应用与软件开发",
+      "科学机器学习"
     ],
     "en": [
-      "Energy engineering",
-      "Computing & software"
+      "AI applications & software",
+      "Scientific machine learning"
     ]
   },
   "intro": {
-    "zh": "清华大学未央书院毕业，数理基础科学与能源动力工程背景。研究与开发围绕能源系统建模、科学计算，以及连接模型、数据和使用者的软件。",
-    "en": "Tsinghua University graduate with a background in mathematics, physics, and energy engineering. My work spans physical modelling, scientific computing, and software that connects models, data, and people."
+    "zh": "清华大学未央书院毕业，具备数理与能源工程背景。关注 AI 应用开发与科学机器学习，实践涵盖工程场景中的 AI 助手、结合物理先验的神经网络预测，以及 AI 决策与软件系统的集成。",
+    "en": "Tsinghua University graduate with a background in mathematics, physics, and energy engineering. I work on AI applications and scientific machine learning: engineering assistants, neural prediction with physical priors, and AI decisions integrated into software."
   },
   "description": {
-    "zh": "段培耀 / Peiyao Duan。清华大学毕业，关注能源系统、物理建模、科学计算与软件开发。查看研究项目、开源作品与中英文简历。",
-    "en": "Peiyao Duan — Tsinghua University graduate. Energy systems, physical modelling, scientific computing, and software development. Research projects, open-source work, and résumé."
+    "zh": "段培耀 / Peiyao Duan。清华大学毕业，关注 AI 应用开发、科学机器学习与软件工程。查看 AI 助手、PyTorch 神经网络预测、AI 决策集成等项目，以及中英文求职简历。",
+    "en": "Peiyao Duan — Tsinghua University graduate working on AI applications, scientific machine learning, and software engineering. AI assistants, PyTorch neural prediction, AI decision integration, and a bilingual résumé."
   },
   "education": {
     "period": "2022 — 2026",
@@ -75,21 +80,21 @@
   "skills": [
     {
       "number": "01",
-      "zh": "物理建模与仿真",
-      "en": "Modelling & simulation",
-      "tools": "Modelica · FMU · COMSOL · MATLAB · SolidWorks"
+      "zh": "机器学习与科学计算",
+      "en": "Machine learning & scientific computing",
+      "tools": "Python · PyTorch · CNN · Surrogate models · Optimisation"
     },
     {
       "number": "02",
-      "zh": "科学计算与学习",
-      "en": "Scientific computing",
-      "tools": "Python · PyTorch · Surrogate models · Optimisation"
+      "zh": "AI 应用与软件工程",
+      "en": "AI applications & software engineering",
+      "tools": "TypeScript · React · FastAPI · WebSocket · Kotlin / Compose"
     },
     {
       "number": "03",
-      "zh": "软件与交互",
-      "en": "Software & interaction",
-      "tools": "TypeScript · React · FastAPI · Kotlin / Compose · C++ / Qt"
+      "zh": "工程建模与仿真",
+      "en": "Engineering modelling & simulation",
+      "tools": "Modelica · FMU · COMSOL · MATLAB · SolidWorks"
     }
   ],
   "awards": [
@@ -111,11 +116,7 @@
     }
   ],
   "about": {
-    "zh": "我的学习和实践横跨数理、能源与软件。研究中，我关注物理模型的边界、数据的来源和实验是否可以复现；开发中，我关心系统能否被理解、维护，并真正用于解决问题。",
-    "en": "My studies and projects connect mathematics, energy, and software. In research, I care about model boundaries, data provenance, and reproducibility. In development, I focus on systems that people can understand, maintain, and use."
-  },
-  "photography": {
-    "zh": "工作之外喜欢摄影，是视觉中国签约摄影师。",
-    "en": "Outside my technical work, I enjoy photography and am a contracted contributor to Visual China Group."
+    "zh": "我希望把数理基础与软件实现结合起来，参与 AI 应用和机器学习相关的研发工作。已有实践覆盖 PyTorch 代理模型、文字与语音助手，以及实时应用中的 AI 决策集成。我关注训练与验证是否可复现，也关注模型接入后的状态管理、失败回退和用户交互。",
+    "en": "I am seeking development roles in AI applications and machine learning, combining a mathematical foundation with software implementation. My projects span PyTorch surrogate models, text and voice assistants, and AI decisions in real-time applications. I focus on reproducible evaluation, state management, failure handling, and usable interfaces."
   }
 }

@@ -1,6 +1,6 @@
 # Peiyao Duan / 段培耀
 
-A bilingual portfolio about energy engineering, scientific computing, and software. Built with Astro, TypeScript, and CSS. Published at [dpy22.github.io](https://dpy22.github.io/).
+A bilingual job-search portfolio focused on AI applications, scientific machine learning, and software engineering. Built with Astro, TypeScript, and CSS. Published at [dpy22.github.io](https://dpy22.github.io/).
 
 ## Local development
 
@@ -32,6 +32,8 @@ pnpm preview
 Chinese lives at / and English at /en/. Language links retain the current project and section. Update both languages together; pnpm check rejects missing fields, unknown references, and incomplete case pairs.
 
 The resume pages and generated one-page A4 PDFs use the same profile and project data. PDFs and the 1200 x 630 share image are generated during pnpm build; they are available in the production preview rather than the development server.
+
+Project order prioritises AI assistants, neural surrogate modelling, and AI decision integration. The four featured projects also appear in the concise PDF; engineering benchmarks and supporting applications remain in the full catalogue. Shared positioning, page metadata, and the social preview all use the profile's focus fields.
 
 Use only material suitable for public distribution. Original resumes, private repository URLs, raw laboratory data, device addresses, credentials, and internal parameters do not belong in this repository. Contributions and work in progress should remain accurately described.
 

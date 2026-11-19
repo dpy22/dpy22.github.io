@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import { alternatePath, profile, text, type Locale } from '../lib/site';
 interface Props { locale: Locale; title?: string; description?: string; kind?: string; noindex?: boolean }
 const { locale, title, description = profile.description[locale], kind = 'home', noindex = false } = Astro.props;
-const pageTitle = title ? `${title} — ${profile.name[locale]}` : text(locale, '段培耀 — 能源工程、科学计算与软件', 'Peiyao Duan — Energy engineering, computing & software');
+const pageTitle = title ? `${title} — ${profile.name[locale]}` : `${profile.name[locale]} — ${profile.focus[locale]}`;
 const canonical = new URL(Astro.url.pathname, profile.site).href;
 const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Peiyao Duan', alternateName: '段培耀', url: profile.site, email: `mailto:${profile.email}`, sameAs: [profile.github], alumniOf: { '@type': 'CollegeOrUniversity', name: 'Tsinghua University' } };
 ---
@@ -35,7 +35,7 @@ const person = { '@context': 'https://schema.org', '@type': 'Person', name: 'Pei
     <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : 'en_US'}/>
     <meta property="og:image" content={`${profile.site}/og-cover.png`}/>
     <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
-    <meta property="og:image:alt" content={text(locale, '段培耀 · 能源工程、科学计算与软件', 'Peiyao Duan · Energy engineering, computing & software')}/>
+    <meta property="og:image:alt" content={`${profile.name[locale]} · ${profile.focus[locale]}`}/>
     <meta name="twitter:card" content="summary_large_image"/>
     <script type="application/ld+json" set:html={JSON.stringify(person)}/>
   </head>

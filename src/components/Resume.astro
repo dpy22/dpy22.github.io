@@ -13,7 +13,7 @@ const further = projects.filter(project => !project.featured);
   </div>
   <article class="resume-sheet">
     <header class="resume-heading">
-      <div><span class="eyebrow">{text(locale, '简历 / CURRICULUM VITAE', 'CURRICULUM VITAE')}</span><h1>{profile.name[locale]}</h1><p>{text(locale, '能源工程 · 科学计算 · 软件开发', 'Energy engineering · Scientific computing · Software')}</p></div>
+      <div><span class="eyebrow">{text(locale, '简历 / CURRICULUM VITAE', 'CURRICULUM VITAE')}</span><h1>{profile.name[locale]}</h1><p>{profile.focus[locale]}</p></div>
       <div class="resume-contact"><a href={`mailto:${profile.email}`}>{profile.email}</a><a href={profile.github}>github.com/dpy22</a><a href={profile.site}>dpy22.github.io</a></div>
     </header>
     <section class="resume-section">
@@ -51,7 +51,6 @@ const further = projects.filter(project => !project.featured);
       <h2>{text(locale, '荣誉与成果', 'Awards & recognition')}</h2>
       <ul>{profile.awards.map((award, index) => <li class:list={{ 'resume-web-only': index > 2 }}>{award[locale]}</li>)}</ul>
     </section>
-    <p class="resume-personal">{profile.photography[locale]}</p>
     <footer class="resume-bottom"><span>{text(locale, '更多项目与完整介绍', 'Full portfolio')} → <a href={profile.site}>dpy22.github.io</a></span><span>{text(locale, '更新于', 'Updated')} {profile.updated}</span></footer>
   </article>
 </div>
